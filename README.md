@@ -2,6 +2,9 @@
 
 A Visual Studio Code themed developer portfolio website built with Next.js and deployed on Vercel.
 
+<img width="1440" alt="Screenshot 2023-12-09 at 12 46 45 PM" src="https://github.com/EfthimiosVlahos/Efthimiosvlahos.github.io/assets/56899588/40739a54-6701-496d-b62c-67f0ce6bd3e0">
+
+
 
 ## Environment Variables
 
