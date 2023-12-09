@@ -17,8 +17,8 @@ const CustomHead = ({ title }) => {
         property="og:description"
         content="Efthimios Vlahos's Profolio."
       />
-      <meta property="og:image" content="https://imgur.com/YTNNknY.png" />
-      <meta property="og:url" content="https://gkos.dev" />
+      <meta property="og:image" content="/Users/Vlahonator/Desktop/Efthimios.github.io-main/public/Screenshot 2023-12-09 at 12.46.45 PM.png" />
+      <meta property="og:url" content="https://efthimiosvlahos-github-io.vercel.app/" />
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );
