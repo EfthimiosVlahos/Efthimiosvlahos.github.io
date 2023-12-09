@@ -27,7 +27,7 @@
   {
     "id": 4,
     "name": "SmartLift-Analysis",
-    "image": "https://private-user-images.githubusercontent.com/56899588/269020383-0a146446-10c4-492e-bba9-527b1e666088.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDIxMzEwMTAsIm5iZiI6MTcwMjEzMDcxMCwicGF0aCI6Ii81Njg5OTU4OC8yNjkwMjAzODMtMGExNDY0NDYtMTBjNC00OTJlLWJiYTktNTI3YjFlNjY2MDg4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFJV05KWUFYNENTVkVINTNBJTJGMjAyMzEyMDklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjMxMjA5VDE0MDUxMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTE2MmJmYTVhMWU5YjMxMzE1ZDcyMjgyNTA3ZDAyYmQxZWVkMmVmZGM0ZTQ3YmRlYWFkOGRlNDI3MzQxYmQzZTEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.-UQe1DF7hqJjnvMuaqQ0gxqsX8ABXR0sA08J-WpjNDo",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNg5pJN7xY_U7QeGm08_2Ih1z1hnMLSeRY6w&usqp=CAU",
     "description": "This project harnesses machine learning models to classify exercises, count repetitions, and detect improper form, aiming to create a digital personal trainer experience.",
     "tags": ["Python", "Time Series Analysis", "Random Forest", "K-Means"],
     "source_code": "https://github.com/EfthimiosVlahos/SmartLift-Analysis-Project"
