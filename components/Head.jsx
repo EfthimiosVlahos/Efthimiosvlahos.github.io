@@ -10,7 +10,7 @@ const CustomHead = ({ title }) => {
       />
       <meta
         name="keywords"
-        content="Efthimios Vlahos, Efthimios, vlahos, data scientist portfolio, machine learning engineer, Efthimios vlahos portfolio, vscode-portfolio"
+        content="Efthimios Vlahos, Efthimios, vlahos, data scientist portfolio, machine learning engineer, efthimios vlahos portfolio, vscode-portfolio"
       />
       <meta property="og:title" content="Efthimios Vlahos's Portfolio" />
       <meta
