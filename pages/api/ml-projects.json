@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Alzheimers Generative AI Project",
-    "image": "https://private-user-images.githubusercontent.com/56899588/292323920-10e52ad5-580f-4d93-86bc-37c8435bf8ff.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDMzNzQ3MzUsIm5iZiI6MTcwMzM3NDQzNSwicGF0aCI6Ii81Njg5OTU4OC8yOTIzMjM5MjAtMTBlNTJhZDUtNTgwZi00ZDkzLTg2YmMtMzdjODQzNWJmOGZmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFJV05KWUFYNENTVkVINTNBJTJGMjAyMzEyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjMxMjIzVDIzMzM1NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU0MWJiYmRhMTQzMTIzZGYzZWRhNzM0NzUyNWQzNjFiM2VmZjQxZmRmMDVjZjQzNzEyZTgxMGQzMTk0ZGFmNmYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.dEupWHedwZ7UJ-aDbM9-ODoxoofMaVTA0yivW6D-8hw",
+    "image": "https://images.theconversation.com/files/410382/original/file-20210708-23-co65ma.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop",
     "description": "Project utilizing LSTM and GRU neural networks for accelerated drug discovery targeting Alzheimer's disease. Leverages deep learning on datasets from ChEMBL to innovate in the computational generation of potential BACE-1 inhibitors, a pivotal target in Alzheimer’s research.",
     "tags": ["Python", "TensorFlow", "Keras", "LSTM", "GRU"],
     "source_code": "https://github.com/EfthimiosVlahos/Alzheimers-Generative-DL-Project?tab=readme-ov-file"
