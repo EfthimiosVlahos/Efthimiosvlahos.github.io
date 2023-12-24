@@ -15,10 +15,28 @@
 .PyTorch:hover {
   background: rgba(238, 89, 3, 0.25);
 }
+.Keras {
+  border: 0.1rem solid rgb(238, 89, 3);
+}
+.Keras:hover {
+  background: rgba(238, 89, 3, 0.25);
+}
+.MLflow {
+  border: 0.1rem solid rgb(238, 89, 3);
+}
+.MLflow:hover {
+  background: rgba(238, 89, 3, 0.25);
+}
 .OpenCV {
   border: 0.1rem solid rgb(50, 85, 213);
 }
 .OpenCV:hover {
+  background: rgba(50, 85, 213, 0.25);
+}
+.DagsHub {
+  border: 0.1rem solid rgb(50, 85, 213);
+}
+.DagsHub:hover {
   background: rgba(50, 85, 213, 0.25);
 }
 .SegFormer {
@@ -27,16 +45,41 @@
 .SegFormer:hover {
   background: rgba(0, 0, 0, 0.25);
 }
+
 .Semantic-Segmentation {
   border: 0.1rem solid rgb(234, 69, 184);
 }
 .Semantic-Segmentation:hover {
   background: rgba(234, 69, 184, 0.25);
 }
+.Docker {
+  border: 0.1rem solid rgb(234, 69, 184);
+}
+.Docker {
+  background: rgba(234, 69, 184, 0.25);
+}
+.Flask {
+  border: 0.1rem solid rgb(234, 69, 184);
+}
+.Docker {
+  background: rgba(234, 69, 184, 0.25);
+}
 .Minecraft {
   border: 0.1rem solid rgb(243, 164, 7);
 }
 .Minecraft:hover {
+  background: rgba(243, 164, 7, 0.25);
+}
+.NLP {
+  border: 0.1rem solid rgb(243, 164, 7);
+}
+.NLP:hover {
+  background: rgba(243, 164, 7, 0.25);
+}
+.OpenAI {
+  border: 0.1rem solid rgb(243, 164, 7);
+}
+.OpenAI:hover {
   background: rgba(243, 164, 7, 0.25);
 }
 .Reinforcement-Learning {
@@ -51,10 +94,28 @@
 .Medical-Imaging:hover {
   background: rgba(72, 86, 197 0.25);
 }
+.Streamlit{
+  border: 0.1rem solid rgb(72, 86, 197);
+}
+.Streamlit:hover {
+  background: rgba(72, 86, 197 0.25);
+}
 .SpaCy {
   border: 0.1rem solid rgb(0, 0, 0);
 }
 .SpaCy:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.Time-Series-Analysis {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.Time-Series-Analysis:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.Random-Forest {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.Random-Forest:hover {
   background: rgba(0, 0, 0, 0.25);
 }
 .HuggingFace {
@@ -63,10 +124,40 @@
 .HuggingFace:hover {
   background: rgba(238, 250, 2, 0.25);
 }
+.Langchain {
+  border: 0.1rem solid rgb(238, 250, 2);
+}
+.Langchain:hover {
+  background: rgba(238, 250, 2, 0.25);
+}
+.Sentiment-Analysis {
+  border: 0.1rem solid rgb(238, 250, 2);
+}
+.Sentiment-Analysis:hover {
+  background: rgba(238, 250, 2, 0.25);
+}
+.Google-Palm {
+  border: 0.1rem solid rgb(238, 250, 2);
+}
+.SGoogle-Palm:hover {
+  background: rgba(238, 250, 2, 0.25);
+}
 .Transformers {
   border: 0.1rem solid rgb(13, 250, 49);
 }
 .Transformers:hover {
+  background: rgba(13, 250, 49 0.25);
+}
+.Chromadb {
+  border: 0.1rem solid rgb(13, 250, 49);
+}
+.Chromadb:hover {
+  background: rgba(13, 250, 49 0.25);
+}
+.Dashboards {
+  border: 0.1rem solid rgb(13, 250, 49);
+}
+.Dashboards :hover {
   background: rgba(13, 250, 49 0.25);
 }
 .BERT {
@@ -75,10 +166,40 @@
 .BERT:hover {
   background: rgba(227, 250, 135, 0.25);
 }
+.KPIs {
+  border: 0.1rem solid rgb(227, 250, 135);
+}
+.KPIs :hover {
+  background: rgba(227, 250, 135, 0.25);
+}
 .Pandas {
   border: 0.1rem solid rgb(0, 54, 216);
 }
 .Pandas:hover {
+  background: rgba(0, 54, 216, 0.25);
+}
+.GCP {
+  border: 0.1rem solid rgb(0, 54, 216);
+}
+.GCP:hover {
+  background: rgba(0, 54, 216, 0.25);
+}
+.BigQuery {
+  border: 0.1rem solid rgb(0, 54, 216);
+}
+.BigQuery:hover {
+  background: rgba(0, 54, 216, 0.25);
+}
+.Naive-Bayes {
+  border: 0.1rem solid rgb(0, 54, 216);
+}
+.Naive-Bayes:hover {
+  background: rgba(0, 54, 216, 0.25);
+}
+.KNN {
+  border: 0.1rem solid rgb(0, 54, 216);
+}
+.KNN:hover {
   background: rgba(0, 54, 216, 0.25);
 }
 .Numpy {
@@ -87,16 +208,58 @@
 .Numpy:hover {
   background: rgba(251, 199, 66, 0.25);
 }
+.Gradient-Boosting {
+  border: 0.1rem solid rgb(251, 199, 66);
+}
+.Gradient-Boosting:hover {
+  background: rgba(251, 199, 66, 0.25);
+}
+.Mage {
+  border: 0.1rem solid rgb(251, 199, 66);
+}
+.Mage:hover {
+  background: rgba(251, 199, 66, 0.25);
+}
+.LSTM{
+  border: 0.1rem solid rgb(251, 199, 66);
+}
+.LSTM:hover {
+  background: rgba(251, 199, 66, 0.25);
+}
+.GRU{
+  border: 0.1rem solid rgb(251, 199, 66);
+}
+.GRU:hover {
+  background: rgba(251, 199, 66, 0.25);
+}
 .Scipy {
   border: 0.1rem solid rgb(5, 194, 247);
 }
 .Scipy:hover {
   background: rgba(5, 194, 247, 0.25);
 }
+.Tableau {
+  border: 0.1rem solid rgb(5, 194, 247);
+}
+.ableau:hover {
+  background: rgba(5, 194, 247, 0.25);
+}
 .Bayesian-Optimization {
   border: 0.1rem solid rgb(0, 0, 0);
 }
 .Bayesian-Optimization:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.Hyperparameter-Tuning {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.Hyperparameter-Tuning:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.Deep-Learning {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.Deep-Learning:hover {
   background: rgba(0, 0, 0, 0.25);
 }
 .XGBoost {
@@ -111,6 +274,12 @@
 .Logistic-Regression:hover {
   background: rgba(0, 0, 0, 0.25);
 }
+.MLops {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.MLops:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
 .Neural-Network {
   border: 0.1rem solid rgb(170, 170, 248);
 }
@@ -121,6 +290,12 @@
   border: 0.1rem solid rgb(0, 0, 0);
 }
 .K-Means:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.PEGASUS {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.PEGASUS:hover {
   background: rgba(0, 0, 0, 0.25);
 }
 .Apache-Spark {
@@ -153,16 +328,28 @@
 .MySQL:hover {
   background: rgba(144, 151, 252, 0.25);
 }
-.Tensorflow {
+.Text-Summarization {
+  border: 0.1rem solid rgb(144, 151, 252);
+}
+.Text-Summarization:hover {
+  background: rgba(144, 151, 252, 0.25);
+}
+.TensorFlow {
   border: 0.1rem solid rgb(239, 113, 113);
 }
-.Tensorflow:hover {
+.TensorFlow:hover {
   background: rgba(239, 113, 113, 0.25);
 }
 .LSTMs {
   border: 0.1rem solid rgb(0, 0, 0);
 }
 .LSTMs:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.ANN {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.ANN:hover {
   background: rgba(0, 0, 0, 0.25);
 }
 .Multivariate-Time-Series {
@@ -199,6 +386,12 @@
   border: 0.1rem solid rgb(194, 203, 255);
 }
 .MLOps:hover {
+  background: rgba(194, 203, 255, 0.25);
+}
+.Feature-Engineering {
+  border: 0.1rem solid rgb(194, 203, 255);
+}
+.Feature-Engineering:hover {
   background: rgba(194, 203, 255, 0.25);
 }
 .Markov-Decision-Process {
