@@ -90,7 +90,7 @@
   },
   {
     "id": 12,
-    "name": "Credit Default Preduiction",
+    "name": "Credit Default Prediction",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-eXYdJwMLDDowFqUiBg5yKyVSKG9E3oWwNg&usqp=CAU",
     "description": "In this project, the objective of the was to predict which credit card customers were likely to default on their payments.",
     "tags": ["Logistic-Regression", "Naive-Bayes", "KNN","Gradient-Boosting", "Random-Forest"],
