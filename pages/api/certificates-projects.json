@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "AWS Certified Cloud Practitioner",
+    "description": "Foundational certification demonstrating an overall understanding of the AWS Cloud. Essential for professionals working with cloud technologies.",
+    "image": "cloudaws.png",
+    "tags": ["AWS"],
+    "source_code": "https://www.credly.com/badges/349b050d-7fb8-4bb7-80c5-3e0fedeb135f/public_url"
+  },
+  {
+    "id": 2,
+    "name": "Advanced Machine Learning on Google Cloud",
+    "description": "Focuses on building and deploying machine learning models at scale using Google Cloud Platform, covering BigQuery, TensorFlow, and AutoML.",
+    "image": "gc.png",
+    "tags": ["Google-Cloud", "Machine-Learning", "TensorFlow", "BigQuery"],
+    "source_code": "https://www.coursera.org/account/accomplishments/specialization/J3UZ6U7NLDY6"
+  },
+  {
+    "id": 3,
+    "name": "Machine Learning Engineering for Production (MLOps) Specialization",
+    "description": "Covers the deployment of machine learning models into production environments, integrating continuous training and model evaluation.",
+    "image": "mlops.png",
+    "tags": ["MLOps", "Machine-Learning"],
+    "source_code": "https://www.coursera.org/account/accomplishments/specialization/T9FWR5N4EEZU"
+  },
+  {
+    "id": 4,
+    "name": "Deep Learning Specialization",
+    "description": "Deep learning fundamentals and techniques including neural networks, convolutional networks, and sequence models.",
+    "image": "DLL.png",
+    "tags": ["Deep-Learning", "Neural-Networks", "AI"],
+    "source_code": "https://www.credly.com/badges/c43b102b-bbac-4cf6-9a4c-94dececd73ea/public_url"
+  },
+  {
+    "id": 5,
+    "name": "Natural Language Processing Specialization",
+    "description": "Extensive training in NLP, including text processing, sentiment analysis, and building language models with Transformers and BERT.",
+    "image": "DLL.png",
+    "tags": ["NLP", "Transformers", "BERT"],
+    "source_code": "https://www.coursera.org/account/accomplishments/specialization/BBLNB4E7QTH5"
+  },
+  {
+    "id": 6,
+    "name": "DeepLearning.AI TensorFlow Developer",
+    "description": "Certification focusing on TensorFlow application, from basic concepts to complex scenarios in real-world machine learning and AI development.",
+    "image": "DLL.png",
+    "tags": ["TensorFlow", "Machine-Learning", "AI"],
+    "source_code": "https://www.coursera.org/account/accomplishments/professional-cert/JD4U32WTLTVD"
+  }
+]

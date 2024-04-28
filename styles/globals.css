@@ -64,6 +64,9 @@
 .Docker {
   background: rgba(234, 69, 184, 0.25);
 }
+.Google-Cloud {
+  background: rgba(234, 69, 184, 0.25);
+}
 .Minecraft {
   border: 0.1rem solid rgb(243, 164, 7);
 }
@@ -352,6 +355,18 @@
 .Text-Summarization:hover {
   background: rgba(144, 151, 252, 0.25);
 }
+.Google-Cloud {
+  border: 0.1rem solid rgb(144, 151, 252);
+}
+.Google-Cloud:hover {
+  background: rgba(144, 151, 252, 0.25);
+}
+.Machine-Learning {
+  border: 0.1rem solid rgb(144, 151, 252);
+}
+.Machine-Learning:hover {
+  background: rgba(144, 151, 252, 0.25);
+}
 .TensorFlow {
   border: 0.1rem solid rgb(239, 113, 113);
 }
@@ -364,6 +379,12 @@
 .LSTMs:hover {
   background: rgba(0, 0, 0, 0.25);
 }
+.Deep-Learning {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.Deep-Learning:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
 .ANN {
   border: 0.1rem solid rgb(0, 0, 0);
 }
@@ -374,6 +395,12 @@
   border: 0.1rem solid rgb(0, 0, 0);
 }
 .Multivariate-Time-Series:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.Neural-Networks {
+  border: 0.1rem solid rgb(0, 0, 0);
+}
+.Neural-Networks:hover {
   background: rgba(0, 0, 0, 0.25);
 }
 .Instagram {
@@ -404,6 +431,12 @@
   border: 0.1rem solid rgb(194, 203, 255);
 }
 .MLOps:hover {
+  background: rgba(194, 203, 255, 0.25);
+}
+.AI {
+  border: 0.1rem solid rgb(194, 203, 255);
+}
+.AI:hover {
   background: rgba(194, 203, 255, 0.25);
 }
 .Feature-Engineering {

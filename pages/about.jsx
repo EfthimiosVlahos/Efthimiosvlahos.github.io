@@ -2,7 +2,7 @@ import { pdfjs } from 'react-pdf';
 import dynamic from 'next/dynamic';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-const myResume = '/Efthimios_Vlahos_Resume_MLE_April_V7.pdf';
+const myResume = '/Efthimios_Vlahos_Resume_MLE_May_V1.pdf';
 
 // Dynamically import the Document and Page components
 const Document = dynamic(() => import('react-pdf').then((mod) => mod.Document), { ssr: false });
@@ -24,7 +24,7 @@ const AboutPage = () => {
 
       <br></br>
       <center>
-        <h3>Resume (<a href={myResume} download='/Efthimios_Vlahos_Resume_MLE_April_V7.pdf'>Download</a>)</h3>
+        <h3>Resume (<a href={myResume} download='/Efthimios_Vlahos_Resume_MLE_May_V1.pdf'>Download</a>)</h3>
         <br />
         <Document 
           file={myResume} 
