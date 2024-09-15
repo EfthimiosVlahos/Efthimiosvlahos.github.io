@@ -2,7 +2,7 @@ import { pdfjs } from 'react-pdf';
 import dynamic from 'next/dynamic';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-const myResume = '/Efthimos_Vlahos_Resume_July_2024_MLE_V1.pdf';
+const myResume = 'Efthimos_Vlahos_Resume_Sep_2024_MLE_V2.pdf';
 
 // Dynamically import the Document and Page components
 const Document = dynamic(() => import('react-pdf').then((mod) => mod.Document), { ssr: false });
@@ -11,20 +11,20 @@ const Page = dynamic(() => import('react-pdf').then((mod) => mod.Page), { ssr: f
 const AboutPage = () => {
   return (
     <>
-        <h3>About Me</h3><br/>
-        <ul>
-  <li>💻 Currently enhancing data-driven decision-making as a Data Analyst at Microsoft, focusing on NLP and LLM model development and deployment.</li>
-  <li>📖 Master of Science in Applied Mathematics & Statistics from SUNY Stony Brook University, integrating a deep understanding of data science principles.</li>
-  <li>🎓 Research Focus: Dedicating time to research in Artificial Intelligence and MLops, exploring cutting-edge methodologies.</li>
+<h3>About Me</h3><br/>
+<ul>
+  <li>💻 Currently driving business intelligence initiatives as a Machine Learning Engineer at Cornerstone Building Brands, specializing in predictive model development and data pipeline architecture.</li>
+  <li>📖 Master of Science in Applied Mathematics & Statistics from SUNY Stony Brook University, with a strong focus on data science, machine learning, and business analytics.</li>
+  <li>🎓 Research Focus: Actively engaged in research on AI, MLOps, and cloud infrastructure, developing scalable solutions for real-world business problems.</li>
   <li>💪 Fitness Devotee: Regularly hitting the gym to stay fit, valuing both physical and mental well-being: proudly have never skipped leg day 🦵.</li>
-  <li>📚 Philosophy Enthusiast: Passionate about reading philosophical ideas and literature.</li>
+  <li>📚 Philosophy Enthusiast: Passionate about reading and discussing philosophical ideas and literature.</li>
 </ul>
 
 
 
       <br></br>
       <center>
-        <h3>Resume (<a href={myResume} download='/Efthimos_Vlahos_Resume_July_2024_MLE_V1.pdf'>Download</a>)</h3>
+        <h3>Resume (<a href={myResume} download='Efthimos_Vlahos_Resume_Sep_2024_MLE_V2.pdf'>Download</a>)</h3>
         <br />
         <Document 
           file={myResume} 
