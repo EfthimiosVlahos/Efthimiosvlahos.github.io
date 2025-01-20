@@ -100,6 +100,117 @@
 
 
 
+// import Image from 'next/image';
+// import GitHubCalendar from 'react-github-calendar';
+// import RepoCard from '../components/RepoCard';
+// import styles from '../styles/GithubPage.module.css';
+
+// const GithubPage = ({ repos, user }) => {
+//   const theme = {
+//     level0: '#161B22',
+//     level1: '#0e4429',
+//     level2: '#006d32',
+//     level3: '#26a641',
+//     level4: '#39d353',
+//   };
+
+//   return (
+//     <>
+//       <a href={`https://github.com/${user.login}`} target="_blank" rel="noopener noreferrer" className={styles.no_color}>
+//         <div className={styles.user}>
+//           <div>
+//             <Image
+//               src={user.avatar_url}
+//               className={styles.avatar}
+//               alt={user.login}
+//               width={50}
+//               height={50}
+//             />
+//             <h3 className={styles.username}>{user.login}</h3>
+//           </div>
+//           <div>
+//             <h3>{user.public_repos} repos</h3>
+//           </div>
+//           <div>
+//             <h3>{user.followers} followers</h3>
+//           </div>
+//         </div>
+//       </a>
+//       <div><center><h3>My Most Popular Repositories on Github</h3></center></div>
+//       <div className={styles.container}>
+//         {repos.map((repo) => (
+//           <RepoCard key={repo.id} repo={repo} />
+//         ))}
+//       </div>
+//       <div><center><h3>My Github Calendar</h3></center></div>
+//       <br />
+//       <center>
+//         <div className={styles.contributions}>
+//           <GitHubCalendar
+//             username={user.login}
+//             theme={theme}
+//             hideColorLegend
+//           />
+//         </div>
+//       </center>
+//     </>
+//   );
+// };
+
+// export async function getStaticProps() {
+//   const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+//   const githubApiKey = process.env.GITHUB_API_KEY;
+
+//   const headers = {
+//     Authorization: `token ${githubApiKey}`,
+//   };
+
+//   const fetchGitHubUser = async () => {
+//     const response = await fetch(`https://api.github.com/users/${githubUsername}`, { headers });
+//     if (!response.ok) {
+//       console.error('Failed to fetch GitHub user:', response.statusText);
+//       return null;
+//     }
+//     return response.json();
+//   };
+
+//   const fetchGitHubRepos = async () => {
+//     const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?per_page=100`, { headers });
+//     if (!response.ok) {
+//       console.error('Failed to fetch GitHub repos:', response.statusText);
+//       return [];
+//     }
+//     return response.json();
+//   };
+
+//   const user = await fetchGitHubUser();
+//   let repos = await fetchGitHubRepos();
+
+//   // Ensure repos is an array
+//   if (Array.isArray(repos)) {
+//     repos = repos
+//       .sort((a, b) => {
+//         const scoreA = a.stargazers_count + a.watchers_count + a.forks_count;
+//         const scoreB = b.stargazers_count + b.watchers_count + b.forks_count;
+//         return scoreB - scoreA;
+//       })
+//       .slice(0, 8);
+//   } else {
+//     repos = [];
+//   }
+
+//   return {
+//     props: { title: 'GitHub', repos, user },
+//     revalidate: 10,
+//   };
+// }
+
+// export default GithubPage;
+
+
+//V3
+
+
 import Image from 'next/image';
 import GitHubCalendar from 'react-github-calendar';
 import RepoCard from '../components/RepoCard';
@@ -113,6 +224,11 @@ const GithubPage = ({ repos, user }) => {
     level3: '#26a641',
     level4: '#39d353',
   };
+
+  // Check if user is null and handle gracefully
+  if (!user) {
+    return <div>Error: Unable to fetch GitHub user data</div>;
+  }
 
   return (
     <>
@@ -147,7 +263,7 @@ const GithubPage = ({ repos, user }) => {
       <center>
         <div className={styles.contributions}>
           <GitHubCalendar
-            username={user.login}
+            username={user.login} // Dynamically use the user's login
             theme={theme}
             hideColorLegend
           />
@@ -206,3 +322,4 @@ export async function getStaticProps() {
 }
 
 export default GithubPage;
+
