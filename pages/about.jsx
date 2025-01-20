@@ -2,7 +2,7 @@ import { pdfjs } from 'react-pdf';
 import dynamic from 'next/dynamic';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-const myResume = 'Efthimos_Vlahos_Resume_Sep_2024_MLE_V9 (2).pdf';
+const myResume = 'Efthimios_Vlahos_Resume_DS_Jan25.pdf';
 
 // Dynamically import the Document and Page components
 const Document = dynamic(() => import('react-pdf').then((mod) => mod.Document), { ssr: false });
@@ -20,11 +20,11 @@ const AboutPage = () => {
   <li>📚 Philosophy Enthusiast: Passionate about reading and discussing philosophical ideas and literature.</li>
 </ul>
 
-
+public/Efthimios_Vlahos_Resume_DS_Jan25.pdf
 
       <br></br>
       <center>
-        <h3>Resume (<a href={myResume} download='Efthimos_Vlahos_Resume_Sep_2024_MLE_V9 (2).pdf'>Download</a>)</h3>
+        <h3>Resume (<a href={myResume} download='Efthimios_Vlahos_Resume_DS_Jan25.pdf'>Download</a>)</h3>
         <br />
         <Document 
           file={myResume} 
