@@ -20,7 +20,7 @@ const AboutPage = () => {
   <li>📚 Philosophy Enthusiast: Passionate about reading and discussing philosophical ideas and literature.</li>
 </ul>
 
-public/Efthimios_Vlahos_Resume_DS_Jan25.pdf
+
 
       <br></br>
       <center>
