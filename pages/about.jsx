@@ -2,7 +2,8 @@ import { pdfjs } from 'react-pdf';
 import dynamic from 'next/dynamic';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-const myResume = 'Efthimios_Vlahos_Resume_DS_Feb25_V8.pdf';
+const myResume = 'pages/Efthimios_Vlahos_Resume_Jul25.pdf';
+
 
 // Dynamically import the Document and Page components
 const Document = dynamic(() => import('react-pdf').then((mod) => mod.Document), { ssr: false });
@@ -13,7 +14,7 @@ const AboutPage = () => {
     <>
 <h3>About Me</h3><br/>
 <ul>
-  <li>💻 Currently driving business intelligence initiatives as a Machine Learning Engineer at Cornerstone Building Brands, specializing in predictive model development and data pipeline architecture.</li>
+  <li>💻 Currently driving business intelligence initiatives as a Machine Learning Engineer at Con Ed, specializing in predictive model development and data pipeline architecture.</li>
   <li>📖 Master of Science in Applied Mathematics & Statistics from SUNY Stony Brook University, with a strong focus on data science, machine learning, and business analytics.</li>
   <li>🎓 Research Focus: Actively engaged in research on AI, MLOps, and cloud infrastructure, developing scalable solutions for real-world business problems.</li>
   <li>💪 Fitness Devotee: Regularly hitting the gym to stay fit, valuing both physical and mental well-being: proudly have never skipped leg day 🦵.</li>
@@ -24,7 +25,7 @@ const AboutPage = () => {
 
       <br></br>
       <center>
-        <h3>Resume (<a href={myResume} download='Efthimios_Vlahos_Resume_DS_Feb25_V8.pdf'>Download</a>)</h3>
+        <h3>Resume (<a href={myResume} download='pages/Efthimios_Vlahos_Resume_Jul25.pdf'>Download</a>)</h3>
         <br />
         <Document 
           file={myResume} 
