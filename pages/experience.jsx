@@ -3,7 +3,7 @@ import experienceData from '../data/experience.json';
 export default function ExperiencePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-3xl font-bold mb-10 opacity-0 animate-fade-in-up">
+      <h1 className="text-3xl font-bold mb-10 fade-in-up">
         Professional Experience
       </h1>
 
@@ -11,7 +11,7 @@ export default function ExperiencePage() {
         {experienceData.map((job, index) => (
           <div
             key={job.id}
-            className={`relative pl-8 border-l-2 border-gray-200 dark:border-gray-700 opacity-0 animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+            className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700 fade-in-up-1"
           >
             <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full border-2 border-primary-500 bg-white dark:bg-[#16162a]" />
 

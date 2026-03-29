@@ -19,9 +19,9 @@ const contactLinks = [
 export default function ContactPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-3xl font-bold mb-8 opacity-0 animate-fade-in-up">Contact</h1>
+      <h1 className="text-3xl font-bold mb-8 fade-in-up">Contact</h1>
 
-      <div className="space-y-4 opacity-0 animate-fade-in-up animate-delay-100">
+      <div className="space-y-4 fade-in-up-1">
         {contactLinks.map((item) => (
           <a
             key={item.label}

@@ -1,9 +1,9 @@
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-3xl font-bold mb-8 opacity-0 animate-fade-in-up">About Me</h1>
+      <h1 className="text-3xl font-bold mb-8 fade-in-up">About Me</h1>
 
-      <div className="space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed opacity-0 animate-fade-in-up animate-delay-100">
+      <div className="space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed fade-in-up-1">
         <p>
           Hi, I&apos;m <strong className="text-gray-900 dark:text-white">Efthimios Vlahos</strong>, a Senior Machine Learning Engineer at{' '}
           <span className="text-[#1e3a5f] dark:text-[#5b9bd5] font-semibold">Alliant Insurance Services</span>. Previously, I worked as an ML Engineer at Con Edison, a Data Scientist at Cornerstone Building Brands, and a Data Analyst at Microsoft. With a Master&apos;s in Applied Mathematics and Statistics from SUNY Stony Brook (GPA 3.5) and a Bachelor&apos;s in Mathematics and Physics from CUNY Hunter College (GPA 3.7), I bring a rigorous foundation in computational theory, statistical modeling, and algorithmic design to every project.
@@ -19,10 +19,10 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <h2 className="text-2xl font-semibold mt-12 mb-6 opacity-0 animate-fade-in-up animate-delay-200">
+      <h2 className="text-2xl font-semibold mt-12 mb-6 fade-in-up-2">
         Current &amp; Past Affiliations
       </h2>
-      <div className="flex flex-wrap gap-8 items-center justify-center opacity-0 animate-fade-in-up animate-delay-300">
+      <div className="flex flex-wrap gap-8 items-center justify-center fade-in-up-3">
         {[
           { src: '/images/logos/Con_Ed.png', alt: 'Con Edison', label: 'Con Edison (Current)' },
           { src: '/images/logos/microsoft_logo.png', alt: 'Microsoft', label: 'Microsoft' },
@@ -37,10 +37,10 @@ export default function AboutPage() {
         ))}
       </div>
 
-      <h2 className="text-2xl font-semibold mt-12 mb-4 opacity-0 animate-fade-in-up animate-delay-300">
+      <h2 className="text-2xl font-semibold mt-12 mb-4 fade-in-up-3">
         Education
       </h2>
-      <div className="space-y-3 opacity-0 animate-fade-in-up animate-delay-400">
+      <div className="space-y-3 fade-in-up-4">
         <div className="flex items-start gap-3">
           <div className="w-2 h-2 mt-2 rounded-full bg-primary-500 shrink-0" />
           <div>
@@ -57,7 +57,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="mt-12 opacity-0 animate-fade-in-up animate-delay-400">
+      <div className="mt-12 fade-in-up-4">
         <a
           href="/Efthimios_Vlahos_Resume_Oct25.pdf"
           download

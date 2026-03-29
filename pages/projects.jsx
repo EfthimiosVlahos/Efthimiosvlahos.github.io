@@ -78,9 +78,9 @@ export default function ProjectsPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-3xl font-bold mb-8 opacity-0 animate-fade-in-up">Projects</h1>
+      <h1 className="text-3xl font-bold mb-8 fade-in-up">Projects</h1>
 
-      <div className="flex gap-2 mb-8 opacity-0 animate-fade-in-up animate-delay-100">
+      <div className="flex gap-2 mb-8 fade-in-up-1">
         {categories.map((cat) => (
           <button
             key={cat.key}
@@ -96,7 +96,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 opacity-0 animate-fade-in-up animate-delay-200">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 fade-in-up-2">
         {filtered.map((project) => (
           <ProjectCard key={`${project.category}-${project.id}`} project={project} />
         ))}

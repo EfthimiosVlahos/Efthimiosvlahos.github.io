@@ -4,14 +4,14 @@ import certifications from '../data/certifications.json';
 export default function SkillsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-3xl font-bold mb-10 opacity-0 animate-fade-in-up">
+      <h1 className="text-3xl font-bold mb-10 fade-in-up">
         Skills &amp; Certifications
       </h1>
 
-      <h2 className="text-2xl font-semibold mb-5 opacity-0 animate-fade-in-up animate-delay-100">
+      <h2 className="text-2xl font-semibold mb-5 fade-in-up-1">
         Skills
       </h2>
-      <div className="overflow-x-auto mb-12 opacity-0 animate-fade-in-up animate-delay-200">
+      <div className="overflow-x-auto mb-12 fade-in-up-2">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-gray-700">
@@ -41,10 +41,10 @@ export default function SkillsPage() {
         </table>
       </div>
 
-      <h2 className="text-2xl font-semibold mb-5 opacity-0 animate-fade-in-up animate-delay-300">
+      <h2 className="text-2xl font-semibold mb-5 fade-in-up-3">
         Certifications
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 opacity-0 animate-fade-in-up animate-delay-400">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 fade-in-up-4">
         {certifications.map((cert) => (
           <div
             key={cert.id}

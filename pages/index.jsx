@@ -1,7 +1,7 @@
 export default function HomePage() {
   return (
     <section className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] px-4">
-      <div className="text-center space-y-6 opacity-0 animate-fade-in-up">
+      <div className="text-center space-y-6 fade-in-up">
         <div className="relative inline-block">
           <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 to-blue-400 rounded-full blur-md opacity-30" />
           <img
@@ -11,7 +11,7 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="space-y-2 opacity-0 animate-fade-in-up animate-delay-100">
+        <div className="space-y-2 fade-in-up-1">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
             Efthimios Vlahos
           </h1>
@@ -24,7 +24,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="flex items-center justify-center gap-5 opacity-0 animate-fade-in-up animate-delay-200">
+        <div className="flex items-center justify-center gap-5 fade-in-up-2">
           <a
             href="mailto:vlahos89@gmail.com"
             className="text-gray-400 hover:text-primary-500 transition-colors"
@@ -58,7 +58,7 @@ export default function HomePage() {
           </a>
         </div>
 
-        <div className="opacity-0 animate-fade-in-up animate-delay-300">
+        <div className="fade-in-up-3">
           <a
             href="/Efthimios_Vlahos_Resume_Oct25.pdf"
             download
