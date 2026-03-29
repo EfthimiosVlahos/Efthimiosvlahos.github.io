@@ -1,38 +1,58 @@
-# VScode Portfolio
+# Efthimios Vlahos — Portfolio
 
-A Visual Studio Code themed developer portfolio website built with Next.js and deployed on Vercel.
+A clean, modern portfolio website built with Next.js 14, React 18, and Tailwind CSS.
 
-<img width="1440" alt="Screenshot 2023-12-09 at 12 46 45 PM" src="https://github.com/EfthimiosVlahos/Efthimiosvlahos.github.io/assets/56899588/40739a54-6701-496d-b62c-67f0ce6bd3e0">
+**Live:** [evlahos.netlify.app](https://evlahos.netlify.app)
 
+## Pages
 
+- **Home** — Hero with profile, social links, resume download
+- **About Me** — Professional bio, affiliations, education
+- **Professional Experience** — Timeline with Con Edison, Cornerstone Building Brands, Microsoft
+- **Projects** — Filterable grid of ML and DevOps projects
+- **Skills & Certifications** — Skills table and certification cards
+- **Contact** — Social link cards
 
-## Environment Variables
+## Tech Stack
 
-For fetching your articles from dev.to, create an `.env.local` file inside the project directory. Check the `.env.local.example` file for more information.
+- **Framework:** Next.js 14 (Static Export)
+- **Styling:** Tailwind CSS with dark/light mode
+- **Deployment:** Netlify (static)
 
-## Running Development Server
+## Getting Started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view locally.
 
-All VSCode related components can be found in the `components` folder. To change the content of the portfolio, check out the `pages` folder. To add or remove pages, modify `components/Sidebar.jsx` and `components/Tabsbar.jsx`.
+## Build
 
-## Next.js Resources
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Static output is generated in the `out/` directory, ready for deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/)
+```
+components/     Layout, Navbar, Footer, ThemeToggle, Head
+pages/          Home, About, Experience, Projects, Skills, Contact
+data/           JSON data files (experience, skills, certifications, projects)
+styles/         Global styles (Tailwind)
+public/         Images, resume PDF, favicon
+```
 
-## Deploy on Vercel
+## Editing Content
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Experience:** Edit `data/experience.json`
+- **Skills:** Edit `data/skills.json`
+- **Certifications:** Edit `data/certifications.json`
+- **Projects:** Edit files in `data/projects/`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deployment
+
+Configured for Netlify via `netlify.toml`. Connect the repo in the Netlify dashboard or drag-and-drop the `out/` folder.
