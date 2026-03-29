@@ -16,8 +16,8 @@ export default function HomePage() {
             Efthimios Vlahos
           </h1>
           <p className="text-lg text-gray-500 dark:text-gray-400">
-            Machine Learning Engineer @{' '}
-            <span className="text-[#76b900] font-semibold">Con Edison</span>
+            Senior Machine Learning Engineer @{' '}
+            <span className="text-[#1e3a5f] dark:text-[#5b9bd5] font-semibold">Alliant Insurance Services</span>
           </p>
           <p className="text-sm text-gray-400 dark:text-gray-500">
             (516) 606-0942 | vlahos89@gmail.com

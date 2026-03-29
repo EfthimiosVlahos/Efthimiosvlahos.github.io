@@ -5,8 +5,8 @@ export default function AboutPage() {
 
       <div className="space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed opacity-0 animate-fade-in-up animate-delay-100">
         <p>
-          Hi, I&apos;m <strong className="text-gray-900 dark:text-white">Efthimios Vlahos</strong>, a Machine Learning Engineer at{' '}
-          <span className="text-[#76b900] font-semibold">Con Edison</span>, where I design and implement advanced AI workflows, develop predictive models for analytics, and build scalable data pipelines. With a Master&apos;s in Applied Mathematics and Statistics from SUNY Stony Brook and a Bachelor&apos;s in Mathematics and Physics from CUNY Hunter College, I bring a rigorous foundation in computational theory, statistical modeling, and algorithmic design to every project.
+          Hi, I&apos;m <strong className="text-gray-900 dark:text-white">Efthimios Vlahos</strong>, a Senior Machine Learning Engineer at{' '}
+          <span className="text-[#1e3a5f] dark:text-[#5b9bd5] font-semibold">Alliant Insurance Services</span>. Previously, I worked as an ML Engineer at Con Edison, a Data Scientist at Cornerstone Building Brands, and a Data Analyst at Microsoft. With a Master&apos;s in Applied Mathematics and Statistics from SUNY Stony Brook (GPA 3.5) and a Bachelor&apos;s in Mathematics and Physics from CUNY Hunter College (GPA 3.7), I bring a rigorous foundation in computational theory, statistical modeling, and algorithmic design to every project.
         </p>
         <p>
           My expertise lies at the intersection of machine learning operations, robust data pipelines, and AI-driven architectures that deliver value across diverse domains. Whether embedding vector databases for semantic search or deploying containerized models with orchestration tools, I focus on building resilient, production-grade systems that scale with organizational needs. In my work, I&apos;ve tackled challenges in energy infrastructure optimization, manufacturing process automation, and financial forecasting, always prioritizing code efficiency, model interpretability, and seamless integration with cloud ecosystems.
@@ -44,15 +44,15 @@ export default function AboutPage() {
         <div className="flex items-start gap-3">
           <div className="w-2 h-2 mt-2 rounded-full bg-primary-500 shrink-0" />
           <div>
-            <p className="font-medium">M.S. Applied Mathematics &amp; Statistics</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">SUNY Stony Brook University</p>
+            <p className="font-medium">M.S. Applied Mathematics &amp; Statistics, Data Science</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">SUNY Stony Brook University &middot; 2021&ndash;2023 &middot; GPA 3.5</p>
           </div>
         </div>
         <div className="flex items-start gap-3">
           <div className="w-2 h-2 mt-2 rounded-full bg-primary-500 shrink-0" />
           <div>
             <p className="font-medium">B.A. Mathematics &amp; Physics</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">CUNY Hunter College</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">CUNY Hunter College &middot; 2016&ndash;2020 &middot; GPA 3.7</p>
           </div>
         </div>
       </div>

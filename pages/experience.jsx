@@ -32,14 +32,16 @@ export default function ExperiencePage() {
               </span>
             </div>
 
-            <ul className="space-y-2 mt-3">
-              {job.achievements.map((achievement, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  <span className="text-primary-500 mt-1 shrink-0">&bull;</span>
-                  <span>{achievement}</span>
-                </li>
-              ))}
-            </ul>
+            {job.achievements.length > 0 && (
+              <ul className="space-y-2 mt-3">
+                {job.achievements.map((achievement, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <span className="text-primary-500 mt-1 shrink-0">&bull;</span>
+                    <span>{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
       </div>

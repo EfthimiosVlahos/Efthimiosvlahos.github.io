@@ -1,44 +1,74 @@
 [
   {
     "id": 1,
-    "name": "AWS Certified Cloud Practitioner",
-    "date": "Apr 2024",
-    "image": "/cloudaws.png",
-    "link": "https://www.credly.com/badges/349b050d-7fb8-4bb7-80c5-3e0fedeb135f/public_url"
+    "name": "PyTorch for Deep Learning",
+    "date": "Nov 2025",
+    "issuer": "DeepLearning.AI",
+    "image": "/DLL.png",
+    "link": null
   },
   {
     "id": 2,
     "name": "Databricks Certified Data Engineer Associate",
-    "date": "Jun 2025",
+    "date": "May 2025",
+    "issuer": "Databricks",
     "image": null,
     "link": null
   },
   {
     "id": 3,
-    "name": "Large Language Model Operations (LLMOps)",
-    "date": "Jun 2024",
-    "image": "/mlops.png",
-    "link": "https://www.coursera.org/account/accomplishments/specialization/T9FWR5N4EEZU"
+    "name": "AWS Certified Cloud Practitioner",
+    "date": "Apr 2024",
+    "issuer": "AWS",
+    "image": "/cloudaws.png",
+    "link": "https://www.credly.com/badges/349b050d-7fb8-4bb7-80c5-3e0fedeb135f/public_url"
   },
   {
     "id": 4,
-    "name": "MLOps | Machine Learning Operations",
-    "date": "May 2024",
+    "name": "Large Language Model Operations (LLMOps)",
+    "date": "Jun 2024",
+    "issuer": "Coursera",
     "image": "/mlops.png",
     "link": "https://www.coursera.org/account/accomplishments/specialization/T9FWR5N4EEZU"
   },
   {
     "id": 5,
+    "name": "MLOps | Machine Learning Operations",
+    "date": "May 2024",
+    "issuer": "Coursera",
+    "image": "/mlops.png",
+    "link": "https://www.coursera.org/account/accomplishments/specialization/T9FWR5N4EEZU"
+  },
+  {
+    "id": 6,
     "name": "Advanced Machine Learning on Google Cloud",
     "date": "2023",
+    "issuer": "Coursera",
     "image": "/gc.png",
     "link": "https://www.coursera.org/account/accomplishments/specialization/J3UZ6U7NLDY6"
   },
   {
-    "id": 6,
+    "id": 7,
     "name": "Deep Learning Specialization",
     "date": "2023",
+    "issuer": "DeepLearning.AI",
     "image": "/DLL.png",
     "link": "https://www.credly.com/badges/c43b102b-bbac-4cf6-9a4c-94dececd73ea/public_url"
+  },
+  {
+    "id": 8,
+    "name": "Natural Language Processing Specialization",
+    "date": "2023",
+    "issuer": "Coursera",
+    "image": "/DLL.png",
+    "link": "https://www.coursera.org/account/accomplishments/specialization/BBLNB4E7QTH5"
+  },
+  {
+    "id": 9,
+    "name": "DeepLearning.AI TensorFlow Developer",
+    "date": "2023",
+    "issuer": "DeepLearning.AI",
+    "image": "/DLL.png",
+    "link": "https://www.coursera.org/account/accomplishments/professional-cert/JD4U32WTLTVD"
   }
 ]

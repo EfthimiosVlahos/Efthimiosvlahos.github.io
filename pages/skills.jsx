@@ -59,7 +59,9 @@ export default function SkillsPage() {
             )}
             <div className="min-w-0">
               <h3 className="font-medium text-sm leading-tight">{cert.name}</h3>
-              <p className="text-xs text-gray-400 mt-1">{cert.date}</p>
+              <p className="text-xs text-gray-400 mt-1">
+                {cert.issuer && <span>{cert.issuer} &middot; </span>}{cert.date}
+              </p>
               {cert.link && (
                 <a
                   href={cert.link}
