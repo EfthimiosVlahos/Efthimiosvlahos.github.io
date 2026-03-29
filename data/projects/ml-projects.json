@@ -1,0 +1,221 @@
+[
+  {
+    "id": 13,
+    "name": "MultiAgent Newsletter Generation",
+    "image": "https://shelf.io/wp-content/uploads/2024/01/The-Evolution-of-AI-Introducing-Autonomous-AI-Agents-_3.jpg",
+    "description": "This project uses the crewAI framework and Streamlit to automate personalized newsletter production through a multi-agent AI system.",
+    "tags": [
+      "NLP",
+      "Generative AI",
+      "Streamlit"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/MultiAgent-NewsletterGen",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 1,
+    "name": "Alzheimers Generative AI Project",
+    "image": "https://images.theconversation.com/files/410382/original/file-20210708-23-co65ma.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop",
+    "description": "Project utilizing LSTM and GRU neural networks for accelerated drug discovery targeting Alzheimer's disease. Leverages deep learning on datasets from ChEMBL to innovate in the computational generation of potential BACE-1 inhibitors, a pivotal target in Alzheimer\u2019s research.",
+    "tags": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "LSTM",
+      "GRU"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/Alzheimers-Generative-DL-Project?tab=readme-ov-file",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 2,
+    "name": "E-Commerce Customer Satisfaction",
+    "image": null,
+    "description": "Leveraging ZenML, I've built a machine learning pipeline that combines data on order status, price, and customer feedback to forecast customer satisfaction effectively.",
+    "tags": [
+      "Python",
+      "XGBoost",
+      "TensorFlow",
+      "MLOps",
+      "MLflow"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/E-commerce-mlops-project",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 3,
+    "name": "Chest Cancer Detection",
+    "image": null,
+    "description": "Project focused on leveraging machine learning for the accurate classification of chest cancer from medical imaging data.",
+    "tags": [
+      "Python",
+      "TensorFlow",
+      "MLflow",
+      "DagsHub",
+      "Docker",
+      "Flask",
+      "AWS",
+      "MLOps",
+      "Medical-Imaging"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/Chest-Cancer-Classification-MLflow-DVC",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 4,
+    "name": "News Research Tool",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWvG3RhSFbQ-JJq6wmwt885bq8Dh9n4oI4yg&usqp=CAU",
+    "description": "Implemented advanced NLP techniques and leveraged OpenAI embeddings along with FAISS vector stores to create a dynamic system for efficient document splitting, embedding generation, and indexing, facilitating rapid and precise information retrieval from extensive news articles.",
+    "tags": [
+      "Python",
+      "OpenAI",
+      "NLP",
+      "Streamlit"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/ChatBot_Research_Analysis",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 5,
+    "name": "SmartLift-Analysis",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNg5pJN7xY_U7QeGm08_2Ih1z1hnMLSeRY6w&usqp=CAU",
+    "description": "This project harnesses machine learning models to classify exercises, count repetitions, and detect improper form, aiming to create a digital personal trainer experience.",
+    "tags": [
+      "Python",
+      "Time-Series-Analysis",
+      "Random-Forest",
+      "K-Means"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/SmartLift-Analysis-Project",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 6,
+    "name": "Youtube DashBoard Sentiment Analysis",
+    "image": null,
+    "description": "Generate and visualize YouTube video analytics, including comment sentiments and engagement metrics, using a Streamlit dashboard powered by the YouTube Data API and advanced data processing tools.",
+    "tags": [
+      "Python",
+      "Sentiment-Analysis",
+      "Dashboards",
+      "KPIs"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/Youtube-DashBoard-NLP-Project",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 7,
+    "name": "NYC TLC Predictive Modeling",
+    "image": null,
+    "description": "The goal of this project is to perform data analytics on TLC (NYC Taxi Limousine Commission) data using various tools and technologies, including GCP Storage, Python, Compute Instance, Mage Data Pipeline Tool, BigQuery, and Looker Studio.",
+    "tags": [
+      "Python",
+      "SQL",
+      "GCP",
+      "BigQuery",
+      "Mage",
+      "Tableau"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/TLC-Data-Science-Engineering-Project",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 8,
+    "name": "Gender Classification",
+    "image": null,
+    "description": "Study aims to determine the optimal tools\u2014specifically Support Vector Machines (SVM), Random Forests, and Artificial Neural Networks (ANN)\u2014for classification tasks involving different data modalities.",
+    "tags": [
+      "TensorFlow",
+      "Deep-Learning",
+      "Hyperparameter-Tuning"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/SBU-CSE-512-ML-Final-Project-Comparing-and-Contrasting-ML-Tools-",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 9,
+    "name": "Text Summarizer",
+    "image": null,
+    "description": "This project aims to develop a sophisticated text summarization tool leveraging the power of the PEGASUS (Pre-training with Extracted Gap-sentences for Abstractive Summarization Sequence-to-Sequence) modelflow",
+    "tags": [
+      "NLP",
+      "TensorFlow",
+      "Transformers",
+      "Text-Summarization",
+      "PEGASUS",
+      "MLops",
+      "AWS"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/NLP-Text-Summarizer",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 10,
+    "name": "SQL Whisperer",
+    "image": null,
+    "description": "I build a system that can talk to MySQL database! User asks questions in a natural language and the system generates answers by converting those questions to an SQL query and then executing that query on MySQL database.",
+    "tags": [
+      "HuggingFace",
+      "Google-Palm",
+      "Langchain",
+      "Chromadb"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/LLM-SQL-Project/blob/main/README.md",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 11,
+    "name": "Higgs Boson Particle Detection",
+    "image": "https://raw.githubusercontent.com/sugatagh/Higgs-Boson-Event-Detection/main/Image/atlas_experiment.png",
+    "description": "The goal of this project is to find a region (called selection region) in the feature space that produces significantly excess of events (called signal events) compared to what known background processes can explain. Once the region has been fixed, a statistical test is applied to determine the significance of the excess. If the probability that the excess has been produced by background processes falls below a certain limit, it indicates the discovery of a new particle.",
+    "tags": [
+      "TensorFlow",
+      "Deep-Learning",
+      "ANN",
+      "Feature-Engineering"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/Higgs_Boson_Particle_Detection_Project",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  },
+  {
+    "id": 12,
+    "name": "Credit Default Prediction",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-eXYdJwMLDDowFqUiBg5yKyVSKG9E3oWwNg&usqp=CAU",
+    "description": "In this project, the objective of the was to predict which credit card customers were likely to default on their payments.",
+    "tags": [
+      "Logistic-Regression",
+      "Naive-Bayes",
+      "KNN",
+      "Gradient-Boosting",
+      "Random-Forest"
+    ],
+    "source_code": "https://github.com/EfthimiosVlahos/AMEX-Credit-Default-Prediction",
+    "demo": null,
+    "scholar": null,
+    "pypi": null
+  }
+]

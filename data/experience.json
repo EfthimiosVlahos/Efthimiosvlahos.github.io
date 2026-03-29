@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Machine Learning Engineer",
+    "company": "Con Edison",
+    "companyColor": "#76b900",
+    "location": "Manhattan, NY [Hybrid]",
+    "period": "03/2025 - Present",
+    "logo": "/images/logos/Con_Ed.png",
+    "achievements": [
+      "Architected agentic AI workflows using LangChain and LangGraph, enabling cross-functional teams to query diverse databases, automating SQL query generation and report creation, slashing report delivery time by 40% for business stakeholders.",
+      "Developed propensity models with XGBoost and scikit-learn to predict customer enrollment in Energy Efficiency (EE) programs, achieving 85% precision and driving $2M in program uptake through targeted campaigns.",
+      "Engineered scalable data pipelines in Databricks using Python and Spark SQL, integrating external datasets to identify eligible customers for clean energy initiatives, reducing data processing time by 35%.",
+      "Built an end-to-end MLOps framework for Databricks, leveraging MLflow, Docker, and CI/CD pipelines to standardize model training, deployment, and monitoring, cutting model onboarding time by 50% and ensuring consistent performance across business units."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Data Scientist",
+    "company": "Cornerstone Building Brands",
+    "companyColor": "#b3a369",
+    "location": "East Meadow, NY [Remote]",
+    "period": "05/2024 - 03/2025",
+    "logo": null,
+    "achievements": [
+      "Built an end-to-end ML pipeline in Python using scikit-learn, NumPy, and Pandas, delivering personalized product recommendations that generated $3.5M in incremental revenue for sales teams.",
+      "Delivered a production-grade web application using Flask and Docker that allowed leadership to input product configurations and obtain real-time predictions on quote-to-close outcomes via hyperparameter-tuned logistic regression and random forest models, driving a 20% increase in conversion rates.",
+      "Developed scalable ETL pipelines in Databricks with Python, SQL, and Bash to extract and transform configuration metrics from Azure Data Lake, reducing pipeline runtimes by 35% and lowering excess inventory costs by 15%.",
+      "Integrated SQL-based Power BI dashboards with real-time data feeds, empowering executives and plant managers to make data-driven decisions that align production outputs with dynamic market demand."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Data Analyst",
+    "company": "Microsoft",
+    "companyColor": "#0c4da2",
+    "location": "East Meadow, NY [Remote]",
+    "period": "10/2020 - 05/2024",
+    "logo": "/images/logos/microsoft_logo.png",
+    "achievements": [
+      "Analyzed enterprise-scale datasets with Python, SQL, and R to support an LLM-based chatbot solution, achieving a 30% reduction in hallucination rates and a 25% boost in user satisfaction through rigorous anomaly detection and data cleansing.",
+      "Spearheaded RAG projects by fine-tuning Phi model using TensorFlow and PyTorch, resulting in enhanced contextual accuracy and improved revenue outcomes for key clients.",
+      "Implemented iterative A/B testing and hyperparameter tuning with scikit-learn, decreasing manual escalations by 20% and optimizing model performance across diverse client knowledge bases.",
+      "Developed comprehensive data visualizations with Seaborn and Matplotlib, uncovering actionable features that drove targeted improvements in LLM functionality and overall operational performance."
+    ]
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "AWS Certified Cloud Practitioner",
+    "date": "Apr 2024",
+    "image": "/cloudaws.png",
+    "link": "https://www.credly.com/badges/349b050d-7fb8-4bb7-80c5-3e0fedeb135f/public_url"
+  },
+  {
+    "id": 2,
+    "name": "Databricks Certified Data Engineer Associate",
+    "date": "Jun 2025",
+    "image": null,
+    "link": null
+  },
+  {
+    "id": 3,
+    "name": "Large Language Model Operations (LLMOps)",
+    "date": "Jun 2024",
+    "image": "/mlops.png",
+    "link": "https://www.coursera.org/account/accomplishments/specialization/T9FWR5N4EEZU"
+  },
+  {
+    "id": 4,
+    "name": "MLOps | Machine Learning Operations",
+    "date": "May 2024",
+    "image": "/mlops.png",
+    "link": "https://www.coursera.org/account/accomplishments/specialization/T9FWR5N4EEZU"
+  },
+  {
+    "id": 5,
+    "name": "Advanced Machine Learning on Google Cloud",
+    "date": "2023",
+    "image": "/gc.png",
+    "link": "https://www.coursera.org/account/accomplishments/specialization/J3UZ6U7NLDY6"
+  },
+  {
+    "id": 6,
+    "name": "Deep Learning Specialization",
+    "date": "2023",
+    "image": "/DLL.png",
+    "link": "https://www.credly.com/badges/c43b102b-bbac-4cf6-9a4c-94dececd73ea/public_url"
+  }
+]

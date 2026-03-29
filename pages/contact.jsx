@@ -1,98 +1,49 @@
-import { useState } from 'react';
-import ContactCode from '../components/ContactCode';
-import styles from '../styles/ContactPage.module.css';
+const contactLinks = [
+  {
+    label: 'Email',
+    value: 'vlahos89@gmail.com',
+    href: 'mailto:vlahos89@gmail.com',
+  },
+  {
+    label: 'GitHub',
+    value: 'github.com/EfthimiosVlahos',
+    href: 'https://github.com/EfthimiosVlahos',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/efthimios-vlahos',
+    href: 'https://www.linkedin.com/in/efthimios-vlahos/',
+  },
+];
 
-const ContactPage = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-
-
-  // const submitForm = async (e) => {
-  //   e.preventDefault();
-  //   console.log(process.env.NEXT_PUBLIC_API_URL);
-  //   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
-  //     method: 'POST',
-  //     body: JSON.stringify({ name, email, subject, message }),
-  //   });
-  //   if (res.ok) {
-  //     alert('Your response has been received!');
-  //     setName('');
-  //     setEmail('');
-  //     setSubject('');
-  //     setMessage('');
-  //   } else {
-  //     alert('There was an error. Please try again in a while.');
-  //   }
-  // };
-
+export default function ContactPage() {
   return (
-    <div className={styles.container}>
-      <div>
-        <h3 className={styles.heading}>Find Me On</h3>
-        <ContactCode />
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h1 className="text-3xl font-bold mb-8 opacity-0 animate-fade-in-up">Contact</h1>
+
+      <div className="space-y-4 opacity-0 animate-fade-in-up animate-delay-100">
+        {contactLinks.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            target={item.href.startsWith('mailto') ? undefined : '_blank'}
+            rel={item.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+            className="flex items-center gap-4 p-5 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-primary-500/50 hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-all group"
+          >
+            <div>
+              <p className="font-medium group-hover:text-primary-500 transition-colors">{item.label}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{item.value}</p>
+            </div>
+            <svg className="w-4 h-4 ml-auto text-gray-300 dark:text-gray-600 group-hover:text-primary-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        ))}
       </div>
-      {/* <div>
-        <h3 className={styles.heading}>Or Fill Out This Form</h3>
-        <form className={styles.form} onSubmit={submitForm}>
-          <div className={styles.flex}>
-            <div>
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="name">Subject</label>
-            <input
-              type="text"
-              name="subject"
-              id="subject"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="message">Message</label>
-            <textarea
-              name="message"
-              id="message"
-              rows="5"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-            ></textarea>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      </div> */}
     </div>
   );
-};
-
-export async function getStaticProps() {
-  return {
-    props: { title: 'Contact' },
-  };
 }
 
-export default ContactPage;
+export async function getStaticProps() {
+  return { props: { title: 'Contact' } };
+}

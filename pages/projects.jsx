@@ -1,104 +1,110 @@
-import ProjectCard from '../components/ProjectCard';
-import { getMLProjects } from './api/ml-projects';
-import { getdevopsProjects } from './api/devops-projects';
-import { getCertificatesProjects } from './api/certificates-projects';
-import { getMiscProjects } from './api/misc-projects';
-import styles from '../styles/ProjectsPage.module.css';
+import { useState } from 'react';
+import mlProjects from '../data/projects/ml-projects.json';
+import devopsProjects from '../data/projects/devops-projects.json';
 
-const ProjectsPage = ({ ml_projects,certificates_projects, devops_projects }) => {
+const categories = [
+  { key: 'all', label: 'All' },
+  { key: 'ml', label: 'Machine Learning' },
+  { key: 'devops', label: 'DevOps' },
+];
+
+const allProjects = [
+  ...mlProjects.map((p) => ({ ...p, category: 'ml' })),
+  ...devopsProjects.map((p) => ({ ...p, category: 'devops' })),
+];
+
+function ProjectCard({ project }) {
   return (
-    <>
-      <br/>
-      <center><h4>Machine Learning</h4></center>
-      <hr/>
-      <div className={styles.container}>
-        {ml_projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+    <div className="group rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-white/[0.02] hover:border-primary-500/50 transition-all duration-300 overflow-hidden">
+      {project.image && !project.image.includes('data:image') && (
+        <div className="h-40 overflow-hidden bg-gray-100 dark:bg-gray-800">
+          <img
+            src={project.image.startsWith('/') || project.image.startsWith('http') ? project.image : `/${project.image}`}
+            alt={project.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      )}
+      <div className="p-5">
+        <h3 className="font-semibold text-base mb-2 group-hover:text-primary-500 transition-colors">
+          {project.name}
+        </h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-3">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {project.tags?.slice(0, 5).map((tag) => (
+            <span
+              key={tag}
+              className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-3">
+          {project.source_code && (
+            <a
+              href={project.source_code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-primary-500 hover:text-primary-400 transition-colors"
+            >
+              Source Code &rarr;
+            </a>
+          )}
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-primary-500 hover:text-primary-400 transition-colors"
+            >
+              Live Demo &rarr;
+            </a>
+          )}
+        </div>
       </div>
-      <br/>
-      <center><h4>Certifications</h4></center>
-      <hr/>
-      <div className={styles.container}>
-        {certificates_projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
-      <center><h4>Devops</h4></center>
-      <hr/>
-      <div className={styles.container}>
-        {devops_projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
-      <br/>
-    </>
+    </div>
   );
-};
-
-export async function getStaticProps() {
-  const ml_projects = getMLProjects();
-  const devops_projects = getdevopsProjects();
-  const certificates_projects = getCertificatesProjects();
-
-
-  return {
-    props: { title: 'Projects', ml_projects,certificates_projects, devops_projects},
-  };
 }
 
-export default ProjectsPage;
+export default function ProjectsPage() {
+  const [activeCategory, setActiveCategory] = useState('all');
 
+  const filtered = activeCategory === 'all'
+    ? allProjects
+    : allProjects.filter((p) => p.category === activeCategory);
 
-// const ProjectsPage = ({ ml_projects, bots_projects, pypi_projects, misc_projects }) => {
-//   return (
-//     <>
-//       <h3>Open Source Projects</h3>
-//       <br/>
-//       <center><h4>Machine Learning</h4></center>
-//       <hr/>
-//       <div className={styles.container}>
-//         {ml_projects.map((project) => (
-//           <ProjectCard key={project.id} project={project} />
-//         ))}
-//       </div>
-//       <br/>
-//       <center><h4>Bots</h4></center>
-//       <hr/>
-//       <div className={styles.container}>
-//         {bots_projects.map((project) => (
-//           <ProjectCard key={project.id} project={project} />
-//         ))}
-//       </div>
-//       <br/>
-//       <center><h4>PyPi Packages</h4></center>
-//       <hr/>
-//       <div className={styles.container}>
-//         {pypi_projects.map((project) => (
-//           <ProjectCard key={project.id} project={project} />
-//         ))}
-//       </div>
-//       <br/>
-//       <center><h4>Misc Projects</h4></center>
-//       <hr/>
-//       <div className={styles.container}>
-//         {misc_projects.map((project) => (
-//           <ProjectCard key={project.id} project={project} />
-//         ))}
-//       </div>
-//     </>
-//   );
-// };
+  return (
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h1 className="text-3xl font-bold mb-8 opacity-0 animate-fade-in-up">Projects</h1>
 
-// export async function getStaticProps() {
-//   const ml_projects = getMLProjects();
-//   const bots_projects = getBotsProjects();
-//   const pypi_projects = getPyPiProjects();
-//   const misc_projects = getMiscProjects();
+      <div className="flex gap-2 mb-8 opacity-0 animate-fade-in-up animate-delay-100">
+        {categories.map((cat) => (
+          <button
+            key={cat.key}
+            onClick={() => setActiveCategory(cat.key)}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              activeCategory === cat.key
+                ? 'bg-primary-500 text-white'
+                : 'bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
 
-//   return {
-//     props: { title: 'Projects', ml_projects, bots_projects, pypi_projects, misc_projects },
-//   };
-// }
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 opacity-0 animate-fade-in-up animate-delay-200">
+        {filtered.map((project) => (
+          <ProjectCard key={`${project.category}-${project.id}`} project={project} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
-// export default ProjectsPage;
+export async function getStaticProps() {
+  return { props: { title: 'Projects' } };
+}

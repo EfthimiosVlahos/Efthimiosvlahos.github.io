@@ -1,0 +1,18 @@
+[
+  {
+    "category": "Programming",
+    "details": "Python, SQL, Bash, C++, Java, R, Rust, TypeScript, JavaScript"
+  },
+  {
+    "category": "ML Frameworks & Libraries",
+    "details": "TensorFlow, PyTorch, JAX, Scikit-learn, PySpark, NumPy, Pandas, Statsmodels, LangChain, LangGraph, MCP, Pydantic, DSpy"
+  },
+  {
+    "category": "Cloud & Data Platforms",
+    "details": "AWS, GCP, Azure, Databricks, Snowflake, MySQL, MongoDB, Apache Spark, Chroma, PineCone, FAISS, Weaviate"
+  },
+  {
+    "category": "DevOps & MLOps",
+    "details": "Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, Airflow, CI/CD, MLflow, DVC, Grafana, Azure ML, Vertex AI, AWS SageMaker"
+  }
+]

@@ -1,24 +1,13 @@
-import Titlebar from '../components/Titlebar';
-import Sidebar from '../components/Sidebar';
-import Explorer from '../components/Explorer';
-import Bottombar from '../components/Bottombar';
-import Tabsbar from './Tabsbar';
-import styles from '../styles/Layout.module.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <Titlebar />
-      <div className={styles.main}>
-        <Sidebar />
-        <Explorer />
-        <div style={{ width: '100%' }}>
-          <Tabsbar />
-          <main className={styles.content}>{children}</main>
-        </div>
-      </div>
-      <Bottombar />
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
   );
 };
 
