@@ -12,7 +12,7 @@ export const caseStudies: CaseStudyMeta[] = [
     period: "2026 – present",
     stack: ["Claude Sonnet 5", "Claude Opus 5", "Supabase", "Redis", "Docker", "Kubernetes", "Stripe", "Clerk", "Caddy"],
     highlights: ["< 24 h approved plan to production", "< $10 agent cost per change", "99.9% monitored uptime"],
-    principles: [4, 8, 9],
+    principles: [5, 8, 9],
     evidence: ["pyxeon"],
   },
   {
@@ -25,7 +25,7 @@ export const caseStudies: CaseStudyMeta[] = [
     period: "2026",
     stack: ["Qwen3.5 MoE", "vLLM", "GPT-5.1", "FastAPI", "PostgreSQL", "Redis", "Celery", "Salesforce", "Docker", "NVIDIA DGX"],
     highlights: ["40% fully automated", "0.10% true reversals", "$0.0085 per policy"],
-    principles: [1, 2, 3, 4, 9, 10],
+    principles: [2, 4, 5, 9, 10],
     evidence: ["alliant"],
   },
   {
@@ -38,7 +38,7 @@ export const caseStudies: CaseStudyMeta[] = [
     period: "2025 – 2026",
     stack: ["LangGraph", "Sentence Transformers", "FAISS", "Databricks", "MLflow", "XGBoost", "Kubeflow", "KServe", "Terraform", "Azure"],
     highlights: ["100+ analysts", "+35% match F1", "$2M+ program revenue"],
-    principles: [2, 4],
+    principles: [1, 3],
     evidence: ["conedison"],
   },
   {
@@ -51,7 +51,7 @@ export const caseStudies: CaseStudyMeta[] = [
     period: "2026",
     stack: ["LangGraph", "Claude", "FastAPI", "Next.js", "Alpaca API", "vectorbt", "MCP", "Docker"],
     highlights: ["6-agent council", "Sharpe ≥ 1 gate", "323 tests"],
-    principles: [2, 4, 9],
+    principles: [3, 5, 8],
     evidence: ["trader-hub"],
   },
 ];

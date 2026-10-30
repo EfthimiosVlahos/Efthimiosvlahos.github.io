@@ -39,7 +39,7 @@ export default function TraderHub() {
         <p>
           Paper trading is the default. Live trading stays locked until paper results clear a graduation gate: a Sharpe
           ratio of at least 1, a maximum drawdown of 15% or less, at least 30 trades and at least 90 days. A kill switch
-          flattens every position and pauses the agent (<Cite n={4} />).
+          flattens every position and pauses the agent (<Cite n={5} />).
         </p>
         <GraduationGate />
       </Chapter>
@@ -47,7 +47,7 @@ export default function TraderHub() {
       <Chapter id="evaluation" title="Evaluation without fooling myself">
         <p>
           A strategy lab replays the council against historical data with lookahead protection, so a backtest can’t
-          quietly use information it wouldn’t have had (<Cite n={2} />). Results are plotted against buy-and-hold as the
+          quietly use information it wouldn’t have had (<Cite n={3} />). Results are plotted against buy-and-hold as the
           benchmark.
         </p>
         <p>

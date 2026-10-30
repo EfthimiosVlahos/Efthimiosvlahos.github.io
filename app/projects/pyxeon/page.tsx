@@ -26,13 +26,13 @@ export default function Pyxeon() {
         <p>
           Every request runs the same path. A planner turns it into a structured plan with an effort estimate within
           minutes. Nothing touches code until the customer approves that plan, which puts the human checkpoint where it
-          is cheapest (<Cite n={4} />). An implementer agent then clones the repository, makes the change, runs the tests,
+          is cheapest (<Cite n={5} />). An implementer agent then clones the repository, makes the change, runs the tests,
           commits and opens a pull request, and a second, independent model reviews the diff against the approved plan.
         </p>
         <PyxeonDrawing />
         <p>
           Customers aren’t engineers, so every change ships with an evidence bundle in plain English: a summary,
-          before-and-after screenshots and the checks that ran. Rollback is one click (<Cite n={9} />).
+          before-and-after screenshots and the checks that ran. Rollback is one click (<Cite n={8} />).
         </p>
       </Chapter>
 

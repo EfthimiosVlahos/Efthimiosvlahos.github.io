@@ -1,12 +1,12 @@
 import { Arrow, Box, Dim, Note } from "./kit";
 
-/** The demo-to-production loop, annotated with what each stage looked like in real projects. */
+/** The demo-to-production loop, annotated with what each stage involves. */
 export const STAGES = [
-  { n: 1, label: "Define correct", note: ["39 hand-labeled documents", "before any model swap"] },
-  { n: 2, label: "Build", note: ["12 releases in 9 days,", "1,700+ tests"] },
-  { n: 3, label: "Evaluate", note: ["every rule replayed on", "cases humans rejected"] },
-  { n: 4, label: "Ship dark", note: ["off by default,", "one-command rollback"] },
-  { n: 5, label: "Operate", note: ["a 2-day silent outage", "now heals in 2 minutes"] },
+  { n: 1, label: "Define correct", note: ["golden set and metric, agreed", "with the people who own it"] },
+  { n: 2, label: "Build", note: ["agents, retrieval and tools", "in small, reviewable releases"] },
+  { n: 3, label: "Evaluate", note: ["offline evals and red-team", "cases run on every change"] },
+  { n: 4, label: "Ship dark", note: ["behind a flag, with rollback", "and human approval gates"] },
+  { n: 5, label: "Operate", note: ["traces, cost ceilings, alerts", "on what users actually see"] },
 ] as const;
 
 const W = 150;

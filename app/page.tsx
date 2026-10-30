@@ -6,7 +6,7 @@ import { ImpactGrid } from "@/components/ImpactGrid";
 import { ProjectCards } from "@/components/ProjectCards";
 import { SkillsConstellation } from "@/components/SkillsConstellation";
 import { ToolsIndex } from "@/components/ToolsIndex";
-import { SimulateLab } from "@/components/lab/SimulateLab";
+import { EvalGate } from "@/components/lab/EvalGate";
 import { Section } from "@/components/Section";
 
 const rise = (i: number) => ({ ["--i" as string]: i });
@@ -108,10 +108,14 @@ export default function Home() {
 
       <Section
         id="method"
-        title="How I test AI before it ships"
-        intro="An AI system that approves things on its own has to earn it. I replay every candidate rule on stored cases, including every case a human reviewer rejected. These are five real replays from an insurance validator; pick one and press Replay."
+        title="Every change runs the eval gate"
+        intro="Demos are easy; production is where AI systems earn trust. Before any prompt, model or tool change ships, it runs against a golden set and has to clear quality, safety, cost and latency gates. Propose a change to a customer-support agent and run the eval."
       >
-        <SimulateLab />
+        <EvalGate />
+        <p className="mt-3 text-xs text-soft">
+          Illustrative example: the agent and its numbers are made up to show the pattern. The gate itself is how I ship
+          changes to real systems.
+        </p>
       </Section>
 
       <section id="contact" aria-labelledby="contact-title" className="sheet scroll-mt-20 pt-24">

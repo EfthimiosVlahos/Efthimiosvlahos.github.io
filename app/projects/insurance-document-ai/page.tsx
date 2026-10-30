@@ -30,7 +30,7 @@ export default function InsuranceDocumentAI() {
         <p>
           Three half-finished repositories from earlier engineers, the fullest version of the API living only on the GPU
           server, and a two-week deadline to bring the pipeline back up on-prem. I documented all three repositories
-          before changing anything (<Cite n={1} />), merged an improved extraction layer, and met the deadline.
+          before changing anything, merged an improved extraction layer, and met the deadline.
         </p>
         <DocPipelineDrawing />
       </Chapter>
@@ -75,8 +75,8 @@ export default function InsuranceDocumentAI() {
       <Chapter id="simulate" title="Simulate before you ship">
         <p>
           Reviewers wanted fewer false manual reviews. Every relaxation risks approving a bad policy, so no rule ships
-          until it has been replayed on stored cases, including every case a reviewer rejected (<Cite n={3} />). Rules
-          that can only send work to a person ship more freely than rules that approve (<Cite n={4} />).
+          until it has been replayed on stored cases, including every case a reviewer rejected (<Cite n={4} />). Rules
+          that can only send work to a person ship more freely than rules that approve (<Cite n={5} />).
         </p>
         <div className="bleed my-8">
           <SimulateLab />
@@ -132,14 +132,14 @@ export default function InsuranceDocumentAI() {
         </p>
         <p>
           I recovered it in the right order, added an idle-transaction timeout, and built a watchdog that probes real
-          generation instead of trusting the health endpoint. Later versions learned to tell a busy server from a dead
+          generation instead of trusting the health endpoint (<Cite n={9} />). Later versions learned to tell a busy server from a dead
           one, stop restart storms and throttle alerts. Other fixes followed the same pattern: find the actual mechanism,
           then make the failure recover itself.
         </p>
         <RecoveryChart />
         <p>
           When an OS patch silently swapped the GPU driver, I recovered the server under locked-down permissions and
-          re-ran all 339 affected cases with zero errors (<Cite n={9} />).
+          re-ran all 339 affected cases with zero errors.
         </p>
       </Chapter>
 
@@ -155,7 +155,7 @@ export default function InsuranceDocumentAI() {
           <strong>Submission intake.</strong> A CIO-requested commercial submission engine, the in-house alternative to a
           vendor product, designed and shipped in two weeks: email intake, document classification, citation-backed
           extraction, a rules-as-data checklist and a guarded loss-history narrative where the model may not invent a
-          number (<Cite n={5} />). Twelve releases in nine days and 1,700+ tests, load-tested while the production system
+          number (<Cite n={6} />). Twelve releases in nine days and 1,700+ tests, load-tested while the production system
           sharing its GPUs was watched live.
         </p>
         <p>
