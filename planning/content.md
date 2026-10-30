@@ -18,6 +18,23 @@ of dollars", "mentor four engineers". The site uses the records instead: 40% ful
 reversals, $0.0085 per policy, median 26 s and P95 152 s per document, a 39-document answer key, policy *review*.
 The résumé PDF on the site is the owner's file and still contains the original bullets.
 
+### Suggested Alliant résumé bullets (match the site and the records)
+
+- Moved production document extraction from GPT-5.1 to a self-hosted Qwen3.5 MoE vision model on vLLM (NVIDIA
+  A100s): on-par field accuracy (93.9% vs 91.5% on 39 hand-labeled documents), no per-document cost, data on-prem.
+- Built an LLM + deterministic-rules validator that approves ~40% of insurance policies with no human touch; 0.10%
+  of AI approvals later overturned by a reviewer; $0.0085 per policy; ~870 reviewer-hours saved in seven weeks.
+- Owned reliability for a shared 8×A100 platform: a watchdog probing real inference turned a failure mode that had
+  gone unnoticed for two days into ~2-minute automatic recoveries.
+- Designed and shipped a CIO-requested submission-intake engine in two weeks as the in-house alternative to a vendor
+  product: citation-backed extraction (99.3% of 560 fields, none invented), load-tested alongside production.
+- Ran discovery for the next automation targets: analyzed 100K+ customer-service cases three ways and delivered a
+  ranked plan; wrote the CIO accuracy report, reconciled to the live dashboard on 22/22 days.
+
+Drop or verify before reuse: "agents resolve 80%", "p95 under 10 s", "500+ case golden set", "policy generation",
+"millions of dollars", "96% field-level accuracy", "mentor four engineers", "10,000+ documents per month" (the
+records show ~65,000 in seven weeks).
+
 ## Anonymization map (Alliant)
 
 Internal program becomes "a renters-insurance compliance program"; the CRM and its vendor become "the CRM" and

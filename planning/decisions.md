@@ -37,3 +37,14 @@ insurance-specific replay lab lives only in that case study. Principles were rew
 **Retrieval, not generation, for "Ask the ancients".** A static site can't hold an API key, and showing BM25 plus
 query rewriting with original text (no paraphrase) demonstrates the retrieval half of RAG honestly. (Oct 2026)
 
+
+**Edits from a two-lens critical review (CEO/VP and recruiter/FDE).** (Oct 2026)
+- Positioning: "Applied AI engineer and architect" in the hero; roles in plain text; best fit adds "standing up an
+  AI practice". The reviewers judged the evidence supports Staff FDE, AI architect and founding AI engineer roles;
+  VP needs management evidence (reports, hiring, budget) that isn't documented, so the site doesn't claim it.
+- Removed "What you see is all there is" (Kahneman's name for a bias, the opposite of the site's argument).
+- Six impact tiles, not nine; "on par with GPT-5.1", not "beat" (2.4 points on 39 documents is within noise);
+  0.10% stated against AI approvals; one wording per metric across pages.
+- Insurance case study: TL;DR, discovery and build-vs-buy chapters, a map of its percentages, and no blame of
+  earlier engineers or the CRM vendor. About gains "Working with leaders and customers".
+- Trader Hub moved to "More builds"; test and commit counts removed as headline achievements; fewer aphorisms.

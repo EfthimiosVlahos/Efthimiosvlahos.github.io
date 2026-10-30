@@ -40,7 +40,7 @@ test("navigation reaches a case study and back", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Projects" }).click();
   await expect(page).toHaveURL(/\/projects$/);
-  await page.getByRole("link", { name: "A trading agent that has to earn live access" }).click();
+  await page.getByRole("link", { name: "Trader Hub" }).click();
   await expect(page.locator("h1")).toHaveText("A trading agent that has to earn live access");
   await page.getByRole("link", { name: "Projects" }).first().click();
   await expect(page).toHaveURL(/\/projects$/);
@@ -142,7 +142,7 @@ test("résumé download is served @mobile", async ({ request }) => {
 test("mobile menu opens, navigates and closes @mobile", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Open menu" }).click();
-  await page.locator("#mobile-nav").getByRole("link", { name: "Professional Experience" }).click();
+  await page.locator("#mobile-nav").getByRole("link", { name: "Experience" }).click();
   await expect(page).toHaveURL(/\/experience$/);
   await expect(page.locator("#mobile-nav")).toHaveCount(0);
 });
