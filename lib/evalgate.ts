@@ -134,7 +134,7 @@ export function evaluate(change: Change, baseline: Run = BASELINE): GateResult {
     },
     {
       id: "latency",
-      label: "p95 latency",
+      label: "Latency (95th percentile)",
       pass: candidate.p95 <= BUDGET.maxP95,
       detail: `${candidate.p95.toFixed(1)} s (budget ${BUDGET.maxP95} s)`,
     },

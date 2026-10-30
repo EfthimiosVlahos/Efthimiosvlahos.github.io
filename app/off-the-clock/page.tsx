@@ -5,7 +5,7 @@ import { AskTheAncients } from "@/components/lab/AskTheAncients";
 import { XgPitch } from "@/components/lab/XgPitch";
 
 export const metadata: Metadata = {
-  title: "Off the Clock",
+  title: "Off the clock",
   description:
     "Greek roots, philosophy and soccer: a search engine over the Stoics that runs in your browser, and an expected-goals model you can shoot with.",
   alternates: { canonical: "/off-the-clock" },
@@ -15,7 +15,7 @@ export default function OffTheClockPage() {
   return (
     <>
       <PageHeader
-        title="Off the Clock"
+        title="Off the clock"
         intro="I’m Greek, I read philosophy for fun, I love soccer, and I travel whenever I can, Greece and Italy included. When I like something, I end up building something small with AI about it. Two of those are below."
       />
 
@@ -31,7 +31,7 @@ export default function OffTheClockPage() {
             A small search engine over Marcus Aurelius, Epictetus, Seneca and Socrates that runs entirely in your browser.
             It rewrites your question into the vocabulary of 19th-century translations, ranks over a thousand passages
             with BM25, and shows its work. No model writes the answers, so every word is the original text: the
-            retrieval half of RAG, done honestly.
+            retrieval half of RAG.
           </>
         }
       >

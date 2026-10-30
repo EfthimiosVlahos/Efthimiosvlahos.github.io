@@ -39,7 +39,7 @@ export function ToolsIndex() {
                 );
               })}
             </ul>
-            {g.alsoFluent && <p className="mt-2 text-sm text-soft">Also: {g.alsoFluent.join(", ")}.</p>}
+            {g.alsoFluent && <p className="mt-2 text-sm text-soft">Also familiar with: {g.alsoFluent.join(", ")}.</p>}
           </div>
         ))}
       </div>

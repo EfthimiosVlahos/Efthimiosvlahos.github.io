@@ -44,6 +44,8 @@ export interface Role {
 
 export interface CaseStudyMeta {
   slug: CaseSlug;
+  /** Short name for compact listings. */
+  name: string;
   title: string;
   /** One sentence for listings and meta descriptions. */
   summary: string;
@@ -53,8 +55,10 @@ export interface CaseStudyMeta {
   stack: string[];
   /** Two or three figures shown in the work list. */
   highlights: string[];
-  /** Principle numbers this case study demonstrates. */
+  /** Principle numbers this case study demonstrates; empty when the write-up doesn't show any. */
   principles: number[];
+  /** Featured as a card; otherwise listed under "More builds" with a link to the write-up. */
+  featured: boolean;
   evidence: EvidenceId[];
 }
 

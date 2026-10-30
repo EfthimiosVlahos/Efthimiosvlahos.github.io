@@ -18,7 +18,7 @@ export default function TraderHub() {
         </p>
         <p>
           My answer is that autonomy has to be earned with evidence, and the system should make the unsafe path
-          physically unavailable rather than merely discouraged.
+          unavailable in code rather than merely discouraged.
         </p>
       </Chapter>
 
@@ -37,8 +37,8 @@ export default function TraderHub() {
 
       <Chapter id="gate" title="Live access has to be earned">
         <p>
-          Paper trading is the default. Live trading stays locked until paper results clear a graduation gate: a Sharpe
-          ratio of at least 1, a maximum drawdown of 15% or less, at least 30 trades and at least 90 days. A kill switch
+          Paper trading is the default. Live trading stays locked in code until paper results clear a graduation gate: a
+          Sharpe ratio (return per unit of risk) of at least 1, a maximum drawdown of 15% or less, at least 30 trades and at least 90 days. A kill switch
           flattens every position and pauses the agent (<Cite n={5} />).
         </p>
         <GraduationGate />
@@ -62,7 +62,6 @@ export default function TraderHub() {
             { label: "Specialist agents in the council", value: "6" },
             { label: "Graduation gate", value: "Sharpe ≥ 1, drawdown ≤ 15%" },
             { label: "Minimum paper record", value: "30 trades, 90 days" },
-            { label: "Backend tests", value: "323" },
             { label: "Stack", value: "FastAPI, Next.js, LangGraph" },
           ]}
         />

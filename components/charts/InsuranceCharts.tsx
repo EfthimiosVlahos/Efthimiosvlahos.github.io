@@ -28,7 +28,7 @@ export function BakeoffChart() {
   return (
     <ChartFigure
       title="Field accuracy on 39 hand-labeled documents"
-      subtitle="The self-hosted model beat the API it replaced, at no per-document cost."
+      subtitle="On par with the API it replaced, with no per-document cost and no data leaving the building."
       viewBox={[W, H]}
       legend={[
         { label: "Field accuracy", color: BLUE, shape: "bar" },
@@ -87,13 +87,13 @@ export function BakeoffChart() {
   );
 }
 
-/* ------------------------------------------------------------------ honest-number waterfall */
+/* ------------------------------------------------------------------ traced-number waterfall */
 
 const WATERFALL = [
   { label: "AI approved, later rejected", value: 248, kind: "total" as const, pct: "0.75%" },
   { label: "Rejected before the AI answered", value: -174, kind: "step" as const },
   { label: "CRM automation conflict", value: -40, kind: "step" as const },
-  { label: "True reviewer reversals", value: 34, kind: "total" as const, pct: "0.10%" },
+  { label: "Overturned by a reviewer", value: 34, kind: "total" as const, pct: "0.10%" },
 ];
 
 /** Stack each step on the running total once, at module load, so render stays pure. */
@@ -121,18 +121,18 @@ export function WaterfallChart() {
 
   return (
     <ChartFigure
-      title="Tracing “0.75% approved, then rejected” to the honest number"
+      title="Tracing “0.75% approved, then rejected” to what the AI actually got wrong"
       subtitle="Every one of the 248 cases traced by hand."
       viewBox={[W, H]}
       legend={[
-        { label: "Cases counted", color: BLUE, shape: "bar" },
-        { label: "Explained away", color: MUTED, shape: "bar" },
+        { label: "Cases", color: BLUE, shape: "bar" },
+        { label: "Not an AI error", color: MUTED, shape: "bar" },
       ]}
       table={{
         columns: ["Step", "Cases"],
         rows: WATERFALL.map((d) => [d.label, d.kind === "step" ? `−${Math.abs(d.value)}` : `${d.value} (${d.pct})`]),
       }}
-      source="Seven-week window. The automation conflict: the CRM closed cases as rejected in the same minute it set them auto-approved, which I handed to its vendor as a bug."
+      source="Seven-week window. The automation conflict: the CRM closed cases as rejected in the same minute it marked them auto-approved."
     >
       {(show) => (
         <>
@@ -229,7 +229,7 @@ export function RecoveryChart() {
         columns: ["Failure", "Before", "After"],
         rows: RECOVERY.map((d) => [d.failure, formatDuration(d.before), d.afterLabel]),
       }}
-      source="The hung model server was the original two-day outage: every health check stayed green while nothing was processed. The watchdog now probes real generation."
+      source="The hung model server once went unnoticed for two days: every health check stayed green while nothing was processed. The watchdog now probes real generation."
     >
       {(show) => (
         <>

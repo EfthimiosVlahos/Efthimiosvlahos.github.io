@@ -5,17 +5,17 @@ export const principles: Principle[] = [
   {
     n: 1,
     title: "Start with the people who own the problem",
-    body: "Sit with them until “correct” is written down. A precisely defined problem beats a clever model every time.",
+    body: "Sit with them until “correct” is written down: what goes in, what should come out, and what a wrong answer costs.",
   },
   {
     n: 2,
     title: "Write the answer key before the first prompt",
-    body: "A golden set and a success metric come first, and the scorer gets tested too. You can’t improve what you can’t grade.",
+    body: "A golden set and a success metric come first, and the scorer gets tested too before any model is compared.",
   },
   {
     n: 3,
     title: "Evals are the spec",
-    body: "Every prompt, model or tool change runs the suite in CI and has to beat the baseline. Vibes don’t ship.",
+    body: "Every prompt, model or tool change runs the suite in CI and has to match or beat the baseline before it ships.",
   },
   {
     n: 4,
@@ -40,7 +40,7 @@ export const principles: Principle[] = [
   {
     n: 8,
     title: "Ship dark, roll back fast",
-    body: "Feature flags, shadow traffic and one-command rollback make releases boring, which is the point.",
+    body: "New behavior ships behind a flag or in shadow mode first, with one-command rollback ready.",
   },
   {
     n: 9,
@@ -50,7 +50,7 @@ export const principles: Principle[] = [
   {
     n: 10,
     title: "Trace scary numbers before quoting them",
-    body: "An alarming metric usually has a boring cause. Find it, report the honest number, and retract wrong theories out loud.",
+    body: "An alarming metric usually has a boring cause. Find it before quoting the number, and retract wrong theories out loud.",
   },
 ];
 

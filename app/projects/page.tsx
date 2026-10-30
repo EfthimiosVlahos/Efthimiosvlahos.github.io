@@ -14,7 +14,7 @@ export default function ProjectsPage() {
     <>
       <PageHeader
         title="Projects"
-        intro="Case studies written the way I’d walk an interviewer through them: the problem, the system I built, what broke, and how I found it."
+        intro="Case studies: the problem, the system I built, and what happened once real users and real data hit it."
       />
       <div className="sheet mt-10">
         <ProjectCards />

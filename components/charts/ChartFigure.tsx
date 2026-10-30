@@ -71,7 +71,7 @@ export function ChartFigure({
       <div className="mt-4 flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
         {source && <p className="max-w-[34rem] text-xs text-soft">{source}</p>}
         <details className="disclosure text-sm">
-          <summary className="text-sm">Show the numbers</summary>
+          <summary className="text-sm">Show as table</summary>
           <table className="data-table mt-2 min-w-[18rem]">
             <thead>
               <tr>

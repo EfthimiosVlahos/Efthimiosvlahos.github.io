@@ -112,7 +112,7 @@ export function EvalGate() {
       detail: result.checks.find((c) => c.id === "cost")?.detail,
     },
     {
-      label: "p95 latency",
+      label: "Latency (95th percentile)",
       base: `${BASELINE.p95.toFixed(1)} s`,
       cand: `${result.candidate.p95.toFixed(1)} s`,
       gate: result.checks.find((c) => c.id === "latency")?.pass,

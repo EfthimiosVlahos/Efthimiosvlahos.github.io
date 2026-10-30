@@ -85,7 +85,8 @@ export function CaseLayout({ meta, children }: { meta: CaseStudyMeta; children: 
       <div className="sheet">{children}</div>
 
       <aside className="sheet mt-20" aria-label="Principles and next case study">
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className={`grid gap-5 ${meta.principles.length ? "lg:grid-cols-2" : ""}`}>
+          {meta.principles.length > 0 && (
           <div className="card p-6">
             <h2 className="text-xl">Principles this shows</h2>
             <ul className="mt-4 space-y-2.5">
@@ -97,6 +98,7 @@ export function CaseLayout({ meta, children }: { meta: CaseStudyMeta; children: 
               ))}
             </ul>
           </div>
+          )}
           {next && next.slug !== meta.slug && (
             <Link href={`/projects/${next.slug}`} className="card card-hover group block p-6 no-underline">
               <div className="text-sm font-medium text-soft">Next case study</div>

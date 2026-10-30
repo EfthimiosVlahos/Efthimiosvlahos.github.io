@@ -8,11 +8,11 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const NAV = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Me" },
-  { href: "/experience", label: "Professional Experience" },
+  { href: "/about", label: "About" },
+  { href: "/experience", label: "Experience" },
   { href: "/projects", label: "Projects" },
-  { href: "/skills", label: "Skills & Certifications" },
-  { href: "/off-the-clock", label: "Off the Clock" },
+  { href: "/skills", label: "Skills" },
+  { href: "/off-the-clock", label: "Off the clock" },
 ] as const;
 
 function isActive(pathname: string, href: string): boolean {

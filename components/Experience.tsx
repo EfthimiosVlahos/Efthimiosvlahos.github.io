@@ -2,7 +2,7 @@ import Link from "next/link";
 import { certifications, education, formatRange, roles } from "@/content/experience";
 import type { Certification } from "@/content/types";
 
-/** The résumé lists these four; the rest are courses, kept one click away. */
+/** Anything past the first four is shown behind a disclosure, so the list stays compact. */
 const PRIMARY_CERTS = 4;
 
 export function ExperienceList() {

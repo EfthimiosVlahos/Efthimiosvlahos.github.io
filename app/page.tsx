@@ -35,16 +35,17 @@ export default function Home() {
           <h1 id="hero-title" className="rise mt-7 text-[clamp(2.6rem,6vw,4.25rem)] leading-[1.05] font-extrabold" style={rise(1)}>
             {profile.name}
           </h1>
-          <p className="rise mt-3 text-lg text-soft sm:text-xl" style={rise(2)}>
-            <span className="block md:inline">
-              Senior ML Engineer @ <span className="font-semibold text-blue">Alliant Insurance Services</span>
+          <p className="rise gradient-text mt-3 text-xl font-semibold sm:text-2xl" style={rise(2)}>
+            {profile.positioning}
+          </p>
+          <p className="rise mt-2 text-soft" style={rise(2)}>
+            <span className="block md:inline">Senior ML Engineer, Alliant Insurance Services</span>
+            <span className="mx-2 hidden md:inline" aria-hidden="true">
+              ·
             </span>
-            <span className="mx-2 hidden text-rule md:inline" aria-hidden="true">
-              |
-            </span>
             <span className="block md:inline">
-              Co-founder @{" "}
-              <a href="https://pyxeon.com" className="font-semibold no-underline">
+              Co-founder,{" "}
+              <a href="https://pyxeon.com" className="no-underline">
                 Pyxeon
               </a>
             </span>
@@ -57,27 +58,26 @@ export default function Home() {
             <SocialLinks />
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/projects" className="btn btn-primary">
-                See my work
+                See case studies
               </Link>
+              <a href={`mailto:${profile.email}`} className="btn btn-quiet">
+                Email me
+              </a>
               <a href={profile.resume} className="btn btn-quiet" download>
                 <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
-                Download Resume
+                Download resume
               </a>
             </div>
           </div>
-
-          <p className="rise mt-16 text-sm text-soft" style={rise(6)}>
-            — What you see is all there is.
-          </p>
         </div>
       </section>
 
       <Section
         id="impact"
         title="Impact at a glance"
-        intro="Six years across insurance, energy, manufacturing and my own company. Where I know how a number was measured, it says so."
+        intro="Selected results from systems running in production, with how they were measured where my records show it."
       >
         <ImpactGrid />
       </Section>
@@ -85,7 +85,7 @@ export default function Home() {
       <Section
         id="featured"
         title="Featured projects"
-        intro="Each one is a case study: the problem, the system I built, what broke, and how I found it."
+        intro="The problem, the system I built, and what happened once real users and real data hit it."
       >
         <ProjectCards />
       </Section>
@@ -93,7 +93,7 @@ export default function Home() {
       <Section
         id="skills"
         title="Skills, wired to the work"
-        intro="Every skill links to the roles and projects where I actually used it. Hover one to light up its connections."
+        intro="Every skill links to the roles and projects where I used it."
       >
         <div className="hidden md:block">
           <SkillsConstellation />
@@ -109,7 +109,7 @@ export default function Home() {
       <Section
         id="method"
         title="Every change runs the eval gate"
-        intro="Demos are easy; production is where AI systems earn trust. Before any prompt, model or tool change ships, it runs against a golden set and has to clear quality, safety, cost and latency gates. Propose a change to a customer-support agent and run the eval."
+        intro="Before any prompt, model or tool change ships, it runs against a golden set (a fixed set of cases with known-good answers) and has to clear quality, safety, cost and latency gates. Propose a change to a customer-support agent and run the eval."
       >
         <EvalGate />
         <p className="mt-3 text-xs text-soft">

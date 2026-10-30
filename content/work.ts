@@ -4,32 +4,37 @@ import type { Build, CaseSlug, CaseStudyMeta } from "./types";
 export const caseStudies: CaseStudyMeta[] = [
   {
     slug: "pyxeon",
+    name: "Pyxeon",
     title: "An engineering department that runs on agents",
     summary:
-      "Co-founded a company that sells small businesses an AI department. Agents plan, build, test and ship each change; the customer approves every plan and an independent verifier checks the result.",
+      "Co-founded a company that sells small businesses an AI engineering department. Agents plan, build, test and ship each change; the customer approves every plan and a separate reviewer model checks the result.",
     org: "Pyxeon",
     role: "Co-founder and AI Platform Lead",
     period: "2026 – present",
     stack: ["Claude Sonnet 5", "Claude Opus 5", "Supabase", "Redis", "Docker", "Kubernetes", "Stripe", "Clerk", "Caddy"],
-    highlights: ["< 24 h approved plan to production", "< $10 agent cost per change", "99.9% monitored uptime"],
+    highlights: ["2 paying customers", "< 24 h approved plan to production", "< $10 agent cost per change"],
     principles: [5, 8, 9],
+    featured: true,
     evidence: ["pyxeon"],
   },
   {
     slug: "insurance-document-ai",
+    name: "Insurance document AI",
     title: "Document AI a compliance team could trust",
     summary:
-      "Took an inherited, half-finished document pipeline to a self-hosted production system that reviews every renters-insurance policy a program receives, and proved each change against the cases humans had rejected.",
+      "Took an early-stage document pipeline to a self-hosted production system that reviews 97% of the renters-insurance policies a program receives, and tested each change against the cases humans had rejected.",
     org: "Alliant Insurance Services",
     role: "Senior Machine Learning Engineer",
     period: "2026",
     stack: ["Qwen3.5 MoE", "vLLM", "GPT-5.1", "FastAPI", "PostgreSQL", "Redis", "Celery", "Salesforce", "Docker", "NVIDIA DGX"],
-    highlights: ["40% fully automated", "0.10% true reversals", "$0.0085 per policy"],
+    highlights: ["40% approved with no human touch", "0.10% of AI approvals overturned", "$0.0085 per policy"],
     principles: [2, 4, 5, 9, 10],
+    featured: true,
     evidence: ["alliant"],
   },
   {
     slug: "energy-utility",
+    name: "Utility agents and ML",
     title: "Agents and classic ML for a utility’s analysts",
     summary:
       "A text-to-SQL agent that 100+ analysts adopted, entity resolution across 20+ systems, and the propensity models and MLOps platform underneath.",
@@ -38,20 +43,23 @@ export const caseStudies: CaseStudyMeta[] = [
     period: "2025 – 2026",
     stack: ["LangGraph", "Sentence Transformers", "FAISS", "Databricks", "MLflow", "XGBoost", "Kubeflow", "KServe", "Terraform", "Azure"],
     highlights: ["100+ analysts", "+35% match F1", "$2M+ program revenue"],
-    principles: [1, 3],
+    principles: [],
+    featured: true,
     evidence: ["conedison"],
   },
   {
     slug: "trader-hub",
+    name: "Trader Hub",
     title: "A trading agent that has to earn live access",
     summary:
-      "A six-agent strategy council debates every trade, and live trading stays physically locked until paper results clear a graduation gate.",
+      "A six-agent strategy council debates every trade, and live trading stays locked in code until paper results clear a graduation gate.",
     org: "Personal project",
     role: "Sole engineer",
     period: "2026",
     stack: ["LangGraph", "Claude", "FastAPI", "Next.js", "Alpaca API", "vectorbt", "MCP", "Docker"],
-    highlights: ["6-agent council", "Sharpe ≥ 1 gate", "323 tests"],
+    highlights: ["6-agent council", "Live trading gated on evidence", "Lookahead-safe backtests"],
     principles: [3, 5, 8],
+    featured: false,
     evidence: ["trader-hub"],
   },
 ];
@@ -68,7 +76,7 @@ export const builds: Build[] = [
     id: "desksergeant",
     name: "DeskSergeant",
     description:
-      "Independent consulting: a multi-tenant fraud and AI-security platform with an iOS app, 1,287 backend tests and 182 architecture decision records.",
+      "Independent consulting: a multi-tenant fraud and AI-security platform with an iOS app, with every significant design choice recorded in an architecture decision record (182 so far).",
     stack: ["FastAPI", "Next.js 16", "Neon Postgres", "iOS"],
   },
   {

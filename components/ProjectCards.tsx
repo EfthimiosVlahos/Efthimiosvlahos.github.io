@@ -4,9 +4,9 @@ import type { CaseSlug } from "@/content/types";
 import { ProjectGlyph } from "./drawings/ProjectGlyph";
 
 export function ProjectCards({ only }: { only?: CaseSlug[] }) {
-  const items = only ? caseStudies.filter((c) => only.includes(c.slug)) : caseStudies;
+  const items = only ? caseStudies.filter((c) => only.includes(c.slug)) : caseStudies.filter((c) => c.featured);
   return (
-    <ul className="grid gap-5 md:grid-cols-2">
+    <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
       {items.map((c) => (
         <li key={c.slug} className="card card-hover group relative flex flex-col overflow-hidden">
           <div className="relative h-36 overflow-hidden border-b border-rule bg-sunken">
@@ -38,10 +38,29 @@ export function ProjectCards({ only }: { only?: CaseSlug[] }) {
 }
 
 export function MoreBuilds() {
+  const writeUps = caseStudies.filter((c) => !c.featured);
   return (
     <div id="more-builds" className="mt-16 scroll-mt-24">
       <h2 className="text-2xl">More builds</h2>
       <ul className="mt-5 grid gap-4 md:grid-cols-2">
+        {writeUps.map((c) => (
+          <li key={c.slug} className="card card-hover relative p-5">
+            <div className="font-semibold">
+              <Link href={`/projects/${c.slug}`} className="text-ink no-underline after:absolute after:inset-0 after:content-[''] hover:text-blue">
+                {c.name}
+              </Link>
+            </div>
+            <p className="mt-1 text-sm text-soft">{c.summary}</p>
+            <div className="mt-3 flex flex-wrap items-center gap-1.5">
+              {c.stack.slice(0, 4).map((s) => (
+                <span key={s} className="chip">
+                  {s}
+                </span>
+              ))}
+              <span className="ml-auto text-sm font-medium text-blue">Read the write-up</span>
+            </div>
+          </li>
+        ))}
         {builds.map((b) => (
           <li key={b.id} className="card p-5">
             <div className="font-semibold">{b.name}</div>

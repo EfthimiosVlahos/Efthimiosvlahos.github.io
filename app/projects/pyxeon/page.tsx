@@ -27,7 +27,7 @@ export default function Pyxeon() {
           Every request runs the same path. A planner turns it into a structured plan with an effort estimate within
           minutes. Nothing touches code until the customer approves that plan, which puts the human checkpoint where it
           is cheapest (<Cite n={5} />). An implementer agent then clones the repository, makes the change, runs the tests,
-          commits and opens a pull request, and a second, independent model reviews the diff against the approved plan.
+          commits and opens a pull request, and a separate reviewer model checks the diff against the approved plan.
         </p>
         <PyxeonDrawing />
         <p>
@@ -70,8 +70,6 @@ export default function Pyxeon() {
             { label: "Median approved plan to deployed change", value: "< 24 h" },
             { label: "Agent cost per shipped change", value: "< $10" },
             { label: "Monitored uptime", value: "99.9%" },
-            { label: "Automated tests", value: "1,500+ backend, 47 frontend" },
-            { label: "Commits since March 2026", value: "~600" },
           ]}
         />
       </Chapter>
