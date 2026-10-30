@@ -29,6 +29,7 @@ Tokens (`app/globals.css`) are role-named and mapped into Tailwind v4 with `@the
   systems or people.
 - `charts/ChartFigure.tsx`: frame, legend, tooltip (hover and keyboard), table view; charts cap at 1.25x their design width.
 - `SkillsConstellation`: layout from `lib/constellation.ts`; desktop only, `ToolsIndex` is the mobile and list view.
+- `EvalGate`, `AskTheAncients`, `XgPitch`: interactive demos; logic in `lib/evalgate.ts`, `lib/retrieval.ts`, `lib/xg.ts`.
 - `Sidenote`: margin notes on wide screens, tap-to-open inline on narrow ones.
 
 ## Accessibility

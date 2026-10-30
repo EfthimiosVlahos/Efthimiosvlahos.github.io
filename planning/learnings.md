@@ -12,3 +12,11 @@
   `sr-only` over `aria-label`.
 - **Hide-until-animated content must depend on JS being present** (`html.js`), or a script failure leaves diagrams invisible.
 - **The e2e axe pass must wait for entrance animations**, or it measures contrast mid-fade.
+- **Check provenance before porting "personal" content.** Template sites ship the theme author's pages; country
+  lists and bios that don't match the owner are the tell.
+- **Query rewriting needs spelling variants.** Older translations mix British and American spellings
+  ("neighbour"/"neighbors"); a regression test per suggested question catches misses.
+- **Fresh PRNG per item is a trap.** Seeding xorshift with small consecutive seeds gives tiny first outputs, so every
+  shot "scored". Use one well-mixed stream (mulberry32) per simulation.
+- **Show readable tokens, not stems.** "actuall" and "worr" read as typos; keep stems internal.
+

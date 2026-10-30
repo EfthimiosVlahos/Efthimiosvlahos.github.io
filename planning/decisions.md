@@ -25,3 +25,15 @@ add a directory level and a Netlify base-directory setting. (Oct 2026)
 **Dropped from the old site:** template leftovers (NVIDIA, Georgia Tech, Samsung and other logos; "cheatsheet",
 "PiArt" projects), the phone number in the hero (still in the résumé PDF), the Capital One teller role (not on the
 current résumé), and older coursework repos (linked via GitHub). (Oct 2026)
+
+**Removed the travel page.** It came from the 2025 Hugo site but was the theme author's content, not the owner's.
+Replaced with an "Off the Clock" page built from the owner's own stated interests: Greek roots, philosophy,
+soccer. (Oct 2026)
+
+**Generic eval gate on the home page, real replays in the case study.** The owner wanted "how I work" to read as
+general and modern rather than tied to one employer. The home page shows an illustrative agent eval gate; the
+insurance-specific replay lab lives only in that case study. Principles were rewritten as general practice. (Oct 2026)
+
+**Retrieval, not generation, for "Ask the ancients".** A static site can't hold an API key, and showing BM25 plus
+query rewriting with original text (no paraphrase) demonstrates the retrieval half of RAG honestly. (Oct 2026)
+

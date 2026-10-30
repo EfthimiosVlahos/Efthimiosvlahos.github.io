@@ -20,18 +20,19 @@ signals availability subtly ("where I do my best work") rather than with "open t
 - Next.js 16 App Router with `output: "export"`: every route is static HTML; Netlify serves `out/`.
 - Content is typed TypeScript in `content/`; pages render it. Pure logic in `lib/` is unit-tested.
 - Visuals are hand-built SVG: no chart or animation libraries. Interactivity is small client islands:
-  `SkillsConstellation`, `SimulateLab`, `HardFailExplainer`, `GraduationGate`, `TravelMap`, `HeroNetwork`, chart tooltips.
-- Maps are computed at build time (`lib/geo.ts`, d3-geo + topojson), so visitors download SVG paths only.
+  `SkillsConstellation`, `EvalGate`, `SimulateLab`, `HardFailExplainer`, `GraduationGate`, `AskTheAncients`,
+  `XgPitch`, `HeroNetwork`, chart tooltips.
+- "Ask the ancients" fetches `public/data/ancients.json` (~170 KB gzipped) only on first interaction.
 
 ## Pages
 
 | Route | Purpose |
 |---|---|
-| `/` | Hero, impact grid, featured projects, skills constellation, eval lab, contact |
+| `/` | Hero, impact grid, featured projects, skills constellation, eval gate (illustrative), contact |
 | `/about` | Bio, how-I-work loop diagram, ten principles, education |
 | `/experience` | Career timeline chart, role cards |
 | `/projects` and `/projects/<slug>` | Case-study cards; four case studies with diagrams and charts |
 | `/skills` | Constellation, skills by group with evidence, certifications |
-| `/travel` | World and US maps, "Around the world in three words" |
+| `/off-the-clock` | Name card (euthymia), "Ask the ancients" BM25 search, expected-goals pitch |
 
 Related: @planning/frontend.md, @planning/content.md, @planning/deployment.md.
