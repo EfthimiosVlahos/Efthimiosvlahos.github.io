@@ -1,0 +1,548 @@
+@import "tailwindcss";
+
+/* Theme is a data attribute set before paint (see ThemeToggle's script), so the toggle wins over the OS. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------------------------------------------------------------- tokens
+ * The site's existing identity: deep navy, Inter, blue accents with a soft glow.
+ * Token names describe roles: paper = page, raised = card, ink = text, soft = secondary text,
+ * rule = borders, blue = primary accent, red = "what broke" accent.
+ */
+:root {
+  --paper: #ffffff;
+  --paper-raised: #f8fafc;
+  --paper-sunken: #f1f5f9;
+  --ink: #111827;
+  --ink-soft: #5b6472;
+  --rule: #e5e7eb;
+  --blue: #1d4ed8; /* text-weight blue: stays AA on the 10% blue chip tint */
+  --blue-strong: #2563eb;
+  --violet: #7c3aed;
+  --red: #be123c; /* text-weight red: stays AA on the 12% red tint */
+  --glow: rgb(37 99 235 / 0.18);
+  /* Chart marks, validated with the dataviz palette checks against --paper. */
+  --mark-blue: #2563eb;
+  --mark-red: #e11d48;
+  --mark-muted: #cbd5e1;
+  /* Six skill groups, in the validated categorical order. */
+  --cat-1: #2a78d6;
+  --cat-2: #eb6834;
+  --cat-3: #1baf7a;
+  --cat-4: #eda100;
+  --cat-5: #e87ba4;
+  --cat-6: #6250d6;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #16162a;
+  --paper-raised: #1d1d36;
+  --paper-sunken: #121224;
+  --ink: #f3f4f6;
+  --ink-soft: #a1a8b8;
+  --rule: rgb(255 255 255 / 0.09);
+  --blue: #60a5fa;
+  --blue-strong: #3b82f6;
+  --violet: #a78bfa;
+  --red: #fb7185;
+  --glow: rgb(96 165 250 / 0.22);
+  --mark-blue: #3b82f6;
+  --mark-red: #f43f5e;
+  --mark-muted: #565e8a;
+  --cat-1: #3987e5;
+  --cat-2: #d95926;
+  --cat-3: #199e70;
+  --cat-4: #c98500;
+  --cat-5: #d55181;
+  --cat-6: #9085e9;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-raised: var(--paper-raised);
+  --color-sunken: var(--paper-sunken);
+  --color-ink: var(--ink);
+  --color-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-blue: var(--blue);
+  --color-blue-strong: var(--blue-strong);
+  --color-violet: var(--violet);
+  --color-red: var(--red);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-note: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* ---------------------------------------------------------------- base */
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5.5rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 300ms ease;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+  p,
+  li {
+    text-wrap: pretty;
+  }
+  a {
+    color: var(--blue);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, var(--blue) 40%, transparent);
+    transition:
+      color 150ms ease,
+      text-decoration-color 150ms ease;
+  }
+  a:hover {
+    text-decoration-color: currentColor;
+  }
+  :focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--blue-strong) 30%, transparent);
+  }
+}
+
+/* ---------------------------------------------------------------- layout and surfaces */
+@layer components {
+  .sheet {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+    line-height: 1.1;
+  }
+
+  .eyebrow-rule {
+    width: 3rem;
+    height: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--blue-strong), var(--violet));
+  }
+
+  .card {
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    border-radius: 1rem;
+  }
+  .card-hover {
+    transition:
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
+  }
+  .card-hover:hover {
+    border-color: color-mix(in srgb, var(--blue) 45%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--blue) 15%, transparent), 0 12px 40px -12px var(--glow);
+  }
+
+  .gradient-text {
+    background: linear-gradient(100deg, var(--blue) 10%, var(--violet) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Soft radial glow behind hero content. */
+  .hero-glow {
+    background:
+      radial-gradient(40rem 22rem at 50% 30%, var(--glow), transparent 70%),
+      radial-gradient(30rem 18rem at 75% 70%, color-mix(in srgb, var(--violet) 12%, transparent), transparent 70%);
+  }
+
+  .measure {
+    max-width: 44rem;
+  }
+
+  /* Prose with a right margin for sidenotes on wide screens. */
+  .with-margin {
+    position: relative;
+    max-width: 44rem;
+  }
+  .with-margin p,
+  .with-margin ul,
+  .with-margin ol {
+    margin-block: 0 1.1em;
+  }
+  .with-margin ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .with-margin ul li::marker {
+    color: var(--blue);
+  }
+
+  .sn-ref {
+    font: 700 0.7em/1 var(--font-sans);
+    color: var(--blue);
+    padding: 0 0.15em;
+    vertical-align: super;
+    cursor: pointer;
+    background: none;
+    border: 0;
+  }
+  .sn-body {
+    display: none;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .sn-body[data-open="true"] {
+    display: block;
+    margin: 0.5em 0 0.9em;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.6rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+  }
+  .sn-num {
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: var(--blue);
+    margin-right: 0.4em;
+  }
+  @media (min-width: 72rem) {
+    .sn-ref {
+      cursor: default;
+    }
+    .sn-body,
+    .sn-body[data-open="true"] {
+      display: block;
+      float: right;
+      clear: right;
+      width: 14.5rem;
+      margin: 0.2em -18rem 1rem 0;
+      padding: 0 0 0 0.85rem;
+      border: 0;
+      border-left: 2px solid color-mix(in srgb, var(--blue) 45%, transparent);
+      border-radius: 0;
+      background: none;
+    }
+    /* Figures inside margin prose may extend across the margin column. */
+    .with-margin .bleed {
+      clear: both;
+      margin-right: -18rem;
+    }
+  }
+
+  /* Native disclosure with a +/− marker. */
+  .disclosure > summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--blue);
+  }
+  .disclosure > summary::-webkit-details-marker {
+    display: none;
+  }
+  .disclosure > summary::before {
+    content: "+";
+    display: inline-grid;
+    place-items: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: 1px solid currentColor;
+    border-radius: 9999px;
+    font: 600 0.8rem/1 var(--font-sans);
+  }
+  .disclosure[open] > summary::before {
+    content: "−";
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .data-table th,
+  .data-table td {
+    text-align: left;
+    padding: 0.45rem 0.75rem 0.45rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .data-table th {
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  .chip {
+    display: inline-block;
+    font-size: 0.78rem;
+    line-height: 1.2;
+    font-weight: 500;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--rule);
+    border-radius: 9999px;
+    color: var(--ink-soft);
+    background: var(--paper-sunken);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.35rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      box-shadow 200ms ease;
+  }
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(100deg, var(--blue-strong), color-mix(in srgb, var(--blue-strong) 55%, var(--violet)));
+    box-shadow: 0 8px 28px -10px var(--glow);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 10px 34px -8px var(--glow);
+    color: #fff;
+  }
+  .btn-primary:disabled {
+    opacity: 0.55;
+    cursor: default;
+  }
+  .btn-quiet {
+    color: var(--ink);
+    border-color: var(--rule);
+    background: transparent;
+  }
+  .btn-quiet:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: color-mix(in srgb, var(--blue) 6%, transparent);
+  }
+}
+
+/* ---------------------------------------------------------------- page-load motion (one orchestrated hero entrance) */
+@layer components {
+  @media (prefers-reduced-motion: no-preference) {
+    .rise {
+      animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      animation-delay: calc(var(--i, 0) * 90ms);
+    }
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------- system diagrams */
+@layer components {
+  .diagram-frame {
+    border: 1px solid var(--rule);
+    border-radius: 1rem;
+    background:
+      radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink-soft) 22%, transparent) 1px, transparent 0) 0 0 / 22px 22px,
+      var(--paper-raised);
+  }
+  .drawing {
+    --stroke: var(--blue);
+    color: var(--ink);
+  }
+  .drawing .ln {
+    fill: none;
+    stroke: var(--stroke);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .drawing .ln-thin {
+    fill: none;
+    stroke: var(--ink-soft);
+    stroke-width: 1;
+    opacity: 0.7;
+  }
+  .drawing .box {
+    fill: var(--paper);
+    stroke: color-mix(in srgb, var(--stroke) 70%, transparent);
+    stroke-width: 1.4;
+    filter: drop-shadow(0 4px 14px var(--glow));
+  }
+  .drawing .box-quiet {
+    fill: var(--paper);
+    stroke: var(--ink-soft);
+    stroke-width: 1;
+    stroke-dasharray: 4 3;
+    opacity: 0.9;
+  }
+  .drawing .lbl {
+    font-family: var(--font-sans);
+    font-weight: 650;
+    fill: var(--ink);
+  }
+  .drawing .sub {
+    font-family: var(--font-sans);
+    fill: var(--ink-soft);
+  }
+  .drawing .note {
+    font-family: var(--font-sans);
+    font-style: italic;
+    fill: var(--ink-soft);
+  }
+  .drawing .note-red {
+    font-family: var(--font-sans);
+    font-style: italic;
+    fill: var(--red);
+  }
+  .drawing .num {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    fill: var(--blue);
+  }
+  .drawing .arrowhead {
+    fill: var(--stroke);
+  }
+
+  /* Diagrams draw themselves once when they scroll into view (see Reveal). The hidden start state
+     only applies when JS is running, so a no-JS visitor always sees the finished drawing. */
+  @media (prefers-reduced-motion: no-preference) {
+    html.js .draw-on .draw {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+    html.js .draw-on .fade {
+      opacity: 0;
+    }
+    html.js .draw-on.is-visible .draw {
+      animation: draw 900ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      animation-delay: calc(var(--i, 0) * 140ms + 100ms);
+    }
+    html.js .draw-on.is-visible .fade {
+      animation: fade 500ms ease forwards;
+      animation-delay: calc(var(--i, 0) * 140ms + 450ms);
+    }
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------------------------- charts */
+@layer components {
+  .chart text {
+    font-family: var(--font-sans);
+    fill: var(--ink-soft);
+    font-size: 13px;
+  }
+  .chart .axis {
+    stroke: var(--rule);
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+  .chart .value {
+    fill: var(--ink);
+    font-weight: 600;
+  }
+  .chart .hit {
+    fill: transparent;
+  }
+  .chart .hit:focus-visible {
+    outline: none;
+    stroke: var(--blue);
+    stroke-width: 1.5;
+  }
+  .chart-tip {
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, calc(-100% - 10px));
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    padding: 0.5rem 0.65rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    z-index: 5;
+    box-shadow: 0 8px 24px -8px rgb(0 0 0 / 0.4);
+  }
+}
+
+/* ---------------------------------------------------------------- lab and constellation */
+@layer components {
+  .dot {
+    transition:
+      fill 380ms ease,
+      stroke 380ms ease,
+      r 380ms ease,
+      fill-opacity 380ms ease;
+    transition-delay: var(--d, 0ms);
+  }
+  .constellation .edge {
+    transition:
+      stroke-opacity 250ms ease,
+      stroke-width 250ms ease;
+  }
+  .constellation .node {
+    transition:
+      opacity 250ms ease,
+      r 250ms ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dot,
+    .constellation .edge,
+    .constellation .node {
+      transition: none;
+    }
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
