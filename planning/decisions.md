@@ -48,3 +48,9 @@ query rewriting with original text (no paraphrase) demonstrates the retrieval ha
 - Insurance case study: TL;DR, discovery and build-vs-buy chapters, a map of its percentages, and no blame of
   earlier engineers or the CRM vendor. About gains "Working with leaders and customers".
 - Trader Hub moved to "More builds"; test and commit counts removed as headline achievements; fewer aphorisms.
+
+**Off the clock as a night sky.** The first version read as cheesy; the owner asked for space and imagination. Each
+space element ties to a stated interest rather than decorating: the Greek name as a constellation, the Stoa (the
+porch Stoicism is named after), the Stoic "view from above" in Marcus Aurelius's words (VII.47, IX.30), a floodlit
+pitch, and Greece and Italy glowing on a night globe that drifts back to the Aegean. (Oct 2026)
+

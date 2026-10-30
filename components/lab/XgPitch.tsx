@@ -106,7 +106,7 @@ export function XgPitch() {
                   fillOpacity={OPACITY[c.b]}
                 />
               ))}
-              <g fill="none" stroke={line} strokeOpacity={0.55} strokeWidth={2}>
+              <g fill="none" stroke={line} strokeOpacity={0.55} strokeWidth={2} className="pitch-lines">
                 <rect x={px(-HALF_W)} y={0} width={HALF_W * 2 * K} height={DEPTH * K} />
                 <rect x={px(-20.16)} y={0} width={40.32 * K} height={16.5 * K} />
                 <rect x={px(-9.16)} y={0} width={18.32 * K} height={5.5 * K} />

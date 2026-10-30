@@ -546,3 +546,100 @@
     display: none !important;
   }
 }
+
+/* ---------------------------------------------------------------- night sky (Off the clock) */
+/* The page is always night, whatever the site theme: its own tokens and a deep-space background. */
+.night {
+  --paper: #060714;
+  --paper-raised: rgb(17 20 44 / 0.72);
+  --paper-sunken: rgb(7 9 24 / 0.82);
+  --ink: #eef0ff;
+  --ink-soft: #aab1cc;
+  --rule: rgb(255 255 255 / 0.1);
+  --blue: #8ab8ff;
+  --blue-strong: #4f8cff;
+  --violet: #b69cff;
+  --red: #ff8b9b;
+  --glow: rgb(120 160 255 / 0.28);
+  --mark-blue: #4f8cff;
+  --mark-red: #f43f5e;
+  --mark-muted: #5d6694;
+  color-scheme: dark;
+  color: var(--ink);
+  background:
+    radial-gradient(70rem 36rem at 15% 8%, rgb(98 70 200 / 0.2), transparent 60%),
+    radial-gradient(60rem 34rem at 88% 32%, rgb(30 96 210 / 0.16), transparent 60%),
+    radial-gradient(56rem 40rem at 30% 78%, rgb(160 60 170 / 0.1), transparent 60%),
+    radial-gradient(50rem 30rem at 80% 96%, rgb(40 120 200 / 0.12), transparent 60%),
+    #060714;
+}
+/* Glass panels so the stars show through. */
+.night .card {
+  background: var(--paper-raised);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-color: rgb(160 180 255 / 0.14);
+}
+
+.constellation-svg .cline {
+  fill: none;
+  stroke: rgb(170 200 255 / 0.5);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.constellation-svg .cline-shot {
+  fill: none;
+  stroke: rgb(253 230 138 / 0.75);
+  stroke-width: 1.2;
+  stroke-dasharray: 2 4;
+  stroke-linecap: round;
+}
+.constellation-svg .cstar {
+  fill: #f4f7ff;
+  filter: drop-shadow(0 0 3px rgb(170 200 255 / 0.9));
+}
+.constellation-svg .cstar-halo {
+  fill: rgb(150 185 255 / 0.12);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .constellation-svg .cstar {
+    animation: twinkle 4s ease-in-out infinite;
+    animation-delay: var(--tw, 0s);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.sky-tile {
+  border: 1px solid rgb(160 180 255 / 0.12);
+  background: rgb(14 17 40 / 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+.sky-tile:hover,
+.sky-tile:focus-visible {
+  border-color: rgb(138 184 255 / 0.5);
+  background: rgb(20 26 60 / 0.6);
+  box-shadow: 0 0 40px -10px rgb(120 160 255 / 0.5);
+}
+.sky-tile:hover .cline {
+  stroke: rgb(200 220 255 / 0.85);
+}
+
+/* The xG pitch under floodlights. */
+.night .pitch-lines {
+  stroke: rgb(190 215 255 / 0.85);
+  filter: drop-shadow(0 0 3px rgb(120 170 255 / 0.9));
+}

@@ -62,6 +62,11 @@ describe("retrieval", () => {
     expect(hits.map((h) => h.passage.ref)).toContain("Book XII, 4");
   });
 
+  it("answers the space-themed questions with Marcus Aurelius looking up and down", () => {
+    expect(search(index, rewriteQuery("What can the stars teach me?"))[0]?.passage.ref).toBe("Book XI, 27");
+    expect(search(index, rewriteQuery("Does any of this matter in the grand scheme of the universe?"))[0]?.passage.ref).toBe("Book VI, 36");
+  });
+
   it("answers anger with Marcus Aurelius on gentleness", () => {
     const hits = search(index, rewriteQuery("How should I deal with anger?"));
     expect(hits[0]?.passage.ref).toBe("Book XI, 18");

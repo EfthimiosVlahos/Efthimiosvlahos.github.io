@@ -95,6 +95,9 @@ const EXPANSIONS: Record<string, string[]> = {
   calm: ["tranquillity", "peace", "undisturbed"],
   peace: ["tranquillity", "calm", "undisturbed"],
   wisdom: ["wise", "philosophy", "knowledge"],
+  space: ["universe", "heaven", "stars"],
+  universe: ["whole", "nature", "heaven"],
+  star: ["heaven", "universe"],
   truth: ["true", "falsehood"],
 };
 

@@ -4,6 +4,8 @@ import { useRef, useState, type FormEvent } from "react";
 import { buildIndex, rewriteQuery, search, stem, type Hit, type Index, type Passage, type RewrittenQuery } from "@/lib/retrieval";
 
 const SUGGESTIONS = [
+  "What can the stars teach me?",
+  "Does any of this matter in the grand scheme of the universe?",
   "I hate getting out of bed in the morning",
   "How do I stop worrying about what people think?",
   "What is actually within my control?",

@@ -23,6 +23,8 @@ signals availability subtly ("where I do my best work") rather than with "open t
   `SkillsConstellation`, `EvalGate`, `SimulateLab`, `HardFailExplainer`, `GraduationGate`, `AskTheAncients`,
   `XgPitch`, `HeroNetwork`, chart tooltips.
 - "Ask the ancients" fetches `public/data/ancients.json` (~170 KB gzipped) only on first interaction.
+- Off the clock is always night (`.night` scopes its own tokens). The starfield is a sticky canvas limited to the
+  page; the globe lazy-loads d3-geo, topojson and world-atlas 110m when it nears the viewport.
 
 ## Pages
 
@@ -33,6 +35,6 @@ signals availability subtly ("where I do my best work") rather than with "open t
 | `/experience` | Career timeline chart, role cards |
 | `/projects` and `/projects/<slug>` | Case-study cards; four case studies with diagrams and charts |
 | `/skills` | Constellation, skills by group with evidence, certifications |
-| `/off-the-clock` | Name card (euthymia), "Ask the ancients" BM25 search, expected-goals pitch |
+| `/off-the-clock` | Night-sky page: name as a constellation, star-chart navigation, euthymia card, "Ask the ancients" (the view from above), floodlit xG pitch, Mediterranean night globe |
 
 Related: @planning/frontend.md, @planning/content.md, @planning/deployment.md.
