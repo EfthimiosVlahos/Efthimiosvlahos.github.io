@@ -47,7 +47,7 @@ export default function AboutPage() {
             <div>
               <dt className="text-soft">Off the clock</dt>
               <dd className="font-medium">
-                <Link href="/travel">22 countries, 25 states, three words each</Link>
+                <Link href="/off-the-clock">Soccer, philosophy and travel</Link>
               </dd>
             </div>
           </dl>
@@ -60,7 +60,7 @@ export default function AboutPage() {
       <Section
         id="how-i-work"
         title="How I work"
-        intro="The loop I run on every AI system, annotated with what each step looked like in real projects."
+        intro="The loop I run on every AI system, from the first conversation with the people who own the problem to running it in production."
       >
         <div className="diagram-frame hidden p-4 md:block lg:p-8">
           <Reveal className="mx-auto max-w-[780px]">

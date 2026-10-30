@@ -12,7 +12,7 @@ const NAV = [
   { href: "/experience", label: "Professional Experience" },
   { href: "/projects", label: "Projects" },
   { href: "/skills", label: "Skills & Certifications" },
-  { href: "/travel", label: "Travel" },
+  { href: "/off-the-clock", label: "Off the Clock" },
 ] as const;
 
 function isActive(pathname: string, href: string): boolean {

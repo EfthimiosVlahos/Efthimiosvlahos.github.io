@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="sheet flex flex-col gap-4 py-8 text-sm text-soft sm:flex-row sm:items-center sm:justify-between">
         <SocialLinks size="sm" />
         <p>
-          Off the clock: <Link href="/travel">22 countries in three words each</Link>.
+          Off the clock: <Link href="/off-the-clock">ask the Stoics, or take a shot</Link>.
         </p>
         <p>© {year} {profile.name}</p>
       </div>
