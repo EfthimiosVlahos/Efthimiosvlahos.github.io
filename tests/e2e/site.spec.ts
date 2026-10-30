@@ -7,7 +7,7 @@ const ROUTES = [
   "/experience",
   "/projects",
   "/skills",
-  "/travel",
+  "/off-the-clock",
   "/projects/pyxeon",
   "/projects/insurance-document-ai",
   "/projects/energy-utility",
@@ -56,8 +56,8 @@ test("theme defaults to dark and the toggle persists across reloads", async ({ p
 });
 
 test("the simulate-before-ship lab reaches the recorded verdicts", async ({ page }) => {
-  await page.goto("/#method");
-  const lab = page.locator("#method");
+  await page.goto("/projects/insurance-document-ai#simulate");
+  const lab = page.locator("#simulate");
   await lab.getByRole("button", { name: "Replay on stored cases" }).click();
   await expect(lab.getByText("Ship it")).toBeVisible();
   await lab.getByLabel("Looser unit-number matching").check();
@@ -92,11 +92,39 @@ test("the graduation gate unlocks only when every bar clears", async ({ page }) 
   await expect(page.getByText("Live trading unlocked")).toBeVisible();
 });
 
-test("travel maps label visited places on keyboard focus", async ({ page }) => {
-  await page.goto("/travel");
-  await page.locator('svg path[aria-label="Japan"]').focus();
-  await expect(page.getByRole("status").filter({ hasText: "Japan" })).toBeVisible();
-  await expect(page.locator('svg [aria-label="Hong Kong"]')).toHaveCount(1);
+test("ask the ancients answers from the texts and shows its work", async ({ page }) => {
+  await page.goto("/off-the-clock");
+  await page.getByRole("button", { name: "I hate getting out of bed in the morning" }).click();
+  await expect(page.getByText("Book V, 1", { exact: false })).toBeVisible();
+  await expect(page.getByText("1. Tokens")).toBeVisible();
+  await page.getByLabel("Ask the ancients a question").fill("how do I deal with anger");
+  await page.getByRole("button", { name: "Ask", exact: true }).click();
+  await expect(page.locator("blockquote mark").first()).toBeVisible();
+});
+
+test("the xG pitch responds to clicks, keys and presets", async ({ page }) => {
+  await page.goto("/off-the-clock");
+  const value = page.locator(".gradient-text").filter({ hasText: /^0\.\d\d$/ });
+  await page.getByRole("button", { name: "Six-yard box" }).click();
+  const close = Number(await value.textContent());
+  await page.getByRole("button", { name: "From distance" }).click();
+  const far = Number(await value.textContent());
+  expect(close).toBeGreaterThan(far);
+  await page.getByRole("application").focus();
+  await page.keyboard.press("ArrowUp");
+  await page.getByRole("button", { name: "Take 100 shots from here" }).click();
+  await expect(page.getByText(/goals from 100 shots/)).toBeVisible();
+});
+
+test("the eval gate ships routing and blocks auto-refunds", async ({ page }) => {
+  await page.goto("/#method");
+  const lab = page.locator("#method");
+  await lab.getByRole("button", { name: "Run the eval" }).click();
+  await expect(lab.getByText("✓ Ship it")).toBeVisible({ timeout: 5000 });
+  await lab.getByLabel("Let the agent issue refunds without approval").check();
+  await lab.getByRole("button", { name: "Run the eval" }).click();
+  await expect(lab.getByText("✗ Blocked")).toBeVisible({ timeout: 5000 });
+  await expect(lab.getByText("3 found; must be zero")).toBeVisible();
 });
 
 test("unknown pages get the 404 page", async ({ page }) => {
@@ -119,7 +147,7 @@ test("mobile menu opens, navigates and closes @mobile", async ({ page }) => {
   await expect(page.locator("#mobile-nav")).toHaveCount(0);
 });
 
-for (const route of ["/", "/projects/insurance-document-ai", "/skills", "/travel"]) {
+for (const route of ["/", "/projects/insurance-document-ai", "/skills", "/off-the-clock"]) {
   test(`${route} passes axe in light mode`, async ({ page }) => {
     await page.addInitScript(() => localStorage.setItem("theme", "light"));
     await page.goto(route);

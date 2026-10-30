@@ -7,7 +7,6 @@ import { principles } from "@/content/principles";
 import { results } from "@/content/results";
 import { toolGroups } from "@/content/tools";
 import { evidence } from "@/content/evidence";
-import { travelEntries, visitedStates, visitedCountries, smallPlaces } from "@/content/travel";
 import { findConfidential } from "./confidential";
 
 const root = join(__dirname, "..", "..");
@@ -55,15 +54,6 @@ describe("content integrity", () => {
     for (const c of certifications) expect(c.name.length).toBeGreaterThan(3);
   });
 
-  it("keeps every travel photo on disk and three words per place", () => {
-    for (const e of travelEntries) {
-      expect(existsSync(join(root, "public", e.photo.src)), e.photo.src).toBe(true);
-      expect(e.words).toHaveLength(3);
-    }
-    expect(visitedStates).toHaveLength(26);
-    expect(Object.keys(visitedCountries)).toHaveLength(22);
-    for (const p of smallPlaces) expect(visitedCountries[p.id]).toBe(p.name);
-  });
 });
 
 describe("confidentiality guard", () => {
