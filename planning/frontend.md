@@ -29,7 +29,13 @@ Tokens (`app/globals.css`) are role-named and mapped into Tailwind v4 with `@the
   systems or people.
 - `charts/ChartFigure.tsx`: frame, legend, tooltip (hover and keyboard), table view; charts cap at 1.25x their design width.
 - `SkillsConstellation`: layout from `lib/constellation.ts`; desktop only, `ToolsIndex` is the mobile and list view.
-- `EvalGate`, `AskTheAncients`, `XgPitch`: interactive demos; logic in `lib/evalgate.ts`, `lib/retrieval.ts`, `lib/xg.ts`.
+- `EvalGate`, `AskTheAncients`: interactive demos; logic in `lib/evalgate.ts`, `lib/retrieval.ts`.
+- Off the clock (`components/space/`): `SolarSystem` (planets are buttons; Kepler periods from `content/personal.ts`;
+  render `PlanetDefs` once per page for the shared gradients), `NightGlobe`, `KeepyUppy` (`lib/keepy.ts`),
+  `EuropeanCups` (`content/realmadrid.ts`), `OneRepMax` (`lib/strength.ts`), `DoublePendulum` (`lib/pendulum.ts`, RK4).
+  Canvases pause off-screen and when the tab is hidden; nothing moves on its own under reduced motion.
+- `.toggle` is the shared pressed-state pill; its pressed fill is darker than `--blue-strong` so white text passes AA.
+- `ChartFigure` takes an optional `minWidth`: below it the plot scrolls sideways on phones instead of shrinking its text.
 - `Sidenote`: margin notes on wide screens, tap-to-open inline on narrow ones.
 
 ## Accessibility

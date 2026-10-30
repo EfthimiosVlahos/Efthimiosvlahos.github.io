@@ -19,4 +19,13 @@
 - **Fresh PRNG per item is a trap.** Seeding xorshift with small consecutive seeds gives tiny first outputs, so every
   shot "scored". Use one well-mixed stream (mulberry32) per simulation.
 - **Show readable tokens, not stems.** "actuall" and "worr" read as typos; keep stems internal.
-
+- **Grids need explicit columns when a child has a minimum width.** A bare `grid` uses `auto` tracks, which grow to
+  the child's min-content and push the page wider than a phone. Use `grid-cols-1` (`minmax(0, 1fr)`).
+- **Wide SVG charts shrink their text on phones.** A 760-unit chart at 308 px renders 13 px labels at about 5 px.
+  Design narrow charts narrow, or give `ChartFigure` a `minWidth` so the plot scrolls instead.
+- **Measure before writing a physics caption.** The pendulum caption first said energy stays "within half a percent";
+  measured drift was 0.0003% after ten simulated minutes, so the caption and its test now say that.
+- **Inter has no ∝ glyph.** The fallback renders as a faint dash; write the relationship in words.
+- **Keyboard e2e on freshly loaded pages can race hydration.** Retry the first interaction until the UI responds
+  (`expect(...).toPass()`), then assert.
+- **Prettier isn't configured in this repo.** Running it reformats files to 80 columns; don't.

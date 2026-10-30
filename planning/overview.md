@@ -21,7 +21,8 @@ signals availability subtly ("where I do my best work") rather than with "open t
 - Content is typed TypeScript in `content/`; pages render it. Pure logic in `lib/` is unit-tested.
 - Visuals are hand-built SVG: no chart or animation libraries. Interactivity is small client islands:
   `SkillsConstellation`, `EvalGate`, `SimulateLab`, `HardFailExplainer`, `GraduationGate`, `AskTheAncients`,
-  `XgPitch`, `HeroNetwork`, chart tooltips.
+  `HeroNetwork`, chart tooltips, and on Off the clock `SolarSystem`, `NightGlobe`, `KeepyUppy`, `OneRepMax`,
+  `DoublePendulum`.
 - "Ask the ancients" fetches `public/data/ancients.json` (~170 KB gzipped) only on first interaction.
 - Off the clock is always night (`.night` scopes its own tokens). The starfield is a sticky canvas limited to the
   page; the globe lazy-loads d3-geo, topojson and world-atlas 110m when it nears the viewport.
@@ -35,6 +36,6 @@ signals availability subtly ("where I do my best work") rather than with "open t
 | `/experience` | Career timeline chart, role cards |
 | `/projects` and `/projects/<slug>` | Case-study cards; four case studies with diagrams and charts |
 | `/skills` | Constellation, skills by group with evidence, certifications |
-| `/off-the-clock` | Night-sky page: name as a constellation, star-chart navigation, euthymia card, "Ask the ancients" (the view from above), floodlit xG pitch, Mediterranean night globe |
+| `/off-the-clock` | The human side, under a night sky: name as a constellation, a solar system of interests that doubles as navigation, a globe with an arc from Greece to Long Island, keepy-uppy and Real Madrid's fifteen European Cups, a one-rep-max calculator, chaotic double pendulums, and "Ask the ancients" |
 
 Related: @planning/frontend.md, @planning/content.md, @planning/deployment.md.

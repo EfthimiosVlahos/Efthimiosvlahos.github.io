@@ -49,7 +49,17 @@ the theme author's, not the owner's. It was briefly ported here by mistake and t
 ## Illustrative content
 
 The home-page eval gate (`lib/evalgate.ts`) is a made-up customer-support agent with made-up numbers, labeled as
-illustrative on the page. The toy xG model is fit to typical open-play values and labeled as a toy.
+illustrative on the page.
+
+## Personal facts (Off the clock)
+
+Only what the owner has stated (Oct 2026): Greek American, lives on Long Island, NY, one of four siblings (three
+siblings), plays Sunday league soccer, supports Real Madrid, loves the gym, studies math and physics in their
+downtime, reads philosophy, has been to Greece and Italy. Degrees (BS Mathematics and Physics, MS Applied Mathematics
+and Statistics) come from the résumé. Don't add positions played, lifts, favorite books, other countries or family
+details without asking. Real Madrid's finals are listed in `content/realmadrid.ts` (fifteen, through the 2026 final;
+PSG won 2025 and 2026). Any physics claim on the page is backed by a unit test (energy drift, chaos timing,
+Epley = Brzycki at ten reps).
 
 ## Writing rules
 

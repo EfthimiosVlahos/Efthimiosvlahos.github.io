@@ -54,3 +54,12 @@ space element ties to a stated interest rather than decorating: the Greek name a
 porch Stoicism is named after), the Stoic "view from above" in Marcus Aurelius's words (VII.47, IX.30), a floodlit
 pitch, and Greece and Italy glowing on a night globe that drifts back to the Aegean. (Oct 2026)
 
+**Off the clock rebuilt around the person, not the AI.** The owner asked for the human side and to drop the
+expected-goals demo. The page is now a solar system of things they love (home, family, soccer, gym, math and physics,
+philosophy) with the profile photo as the sun; each planet links to its section, and sections follow orbit order.
+Each interaction teaches something real: Kepler's third law sets the orbit periods, the double pendulum shows
+chaos (each thousand-fold smaller head start buys only about three seconds), the two one-rep-max formulas agree
+exactly at ten reps, and the Real Madrid chart is a running total, so the 32 years between the sixth and seventh
+cups shows as a plateau. "Ask the ancients" stays as the one AI-flavored piece. The star-chart navigation, the Stoa,
+pitch and Mediterranean constellations, and `lib/xg.ts` were removed. (Oct 2026)
+
