@@ -2,7 +2,47 @@
   command = "npm run build"
   publish = "out"
 
+[build.environment]
+  NODE_VERSION = "22"
+
+# Pages from the previous version of the site, so old links and bookmarks keep working.
+[[redirects]]
+  from = "/contact"
+  to = "/#contact"
+  status = 301
+
+[[redirects]]
+  from = "/work/*"
+  to = "/projects/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/Efthimios_Vlahos_Resume_Oct25.pdf"
+  to = "/Efthimios_Vlahos_Resume.pdf"
+  status = 301
+
+# Unknown paths get the real 404 page (the old catch-all to /index.html hid broken links).
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
+
+# The static export writes the share image without an extension; tell crawlers it is a PNG.
+[[headers]]
+  for = "/opengraph-image"
+  [headers.values]
+    Content-Type = "image/png"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
