@@ -20,6 +20,7 @@ export function ChartFigure({
   legend,
   table,
   source,
+  minWidth,
   children,
 }: {
   title: string;
@@ -28,6 +29,8 @@ export function ChartFigure({
   legend?: { label: string; color: string; shape?: "dot" | "bar" | "tick" }[];
   table: { columns: string[]; rows: (string | number)[][] };
   source?: ReactNode;
+  /** Narrowest the plot may get, in px. Below it the plot scrolls sideways on phones so its text stays readable. */
+  minWidth?: number;
   children: (show: (tip: Tip | null) => void) => ReactNode;
 }) {
   const [tip, setTip] = useState<Tip | null>(null);
@@ -54,19 +57,21 @@ export function ChartFigure({
         </ul>
       )}
       {/* Capped at 1.25x design size so chart text stays proportionate on wide screens. */}
-      <div className="relative mx-auto mt-4" style={{ maxWidth: w * 1.25 }} onMouseLeave={() => setTip(null)}>
-        <svg viewBox={`0 0 ${w} ${h}`} className="chart block h-auto w-full overflow-visible" role="img" aria-label={title}>
-          {children(setTip)}
-        </svg>
-        {tip && (
-          <div className="chart-tip" style={{ left: `${(tip.x / w) * 100}%`, top: `${(tip.y / h) * 100}%` }} role="status">
-            {tip.lines.map((line, k) => (
-              <div key={k} className={k === 0 ? "font-semibold" : ""}>
-                {line}
-              </div>
-            ))}
-          </div>
-        )}
+      <div className={minWidth ? "-mx-5 px-5 max-sm:overflow-x-auto" : undefined}>
+        <div className="relative mx-auto mt-4" style={{ maxWidth: w * 1.25, minWidth }} onMouseLeave={() => setTip(null)}>
+          <svg viewBox={`0 0 ${w} ${h}`} className="chart block h-auto w-full overflow-visible" role="img" aria-label={title}>
+            {children(setTip)}
+          </svg>
+          {tip && (
+            <div className="chart-tip" style={{ left: `${(tip.x / w) * 100}%`, top: `${(tip.y / h) * 100}%` }} role="status">
+              {tip.lines.map((line, k) => (
+                <div key={k} className={k === 0 ? "font-semibold" : ""}>
+                  {line}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
       <div className="mt-4 flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
         {source && <p className="max-w-[34rem] text-xs text-soft">{source}</p>}

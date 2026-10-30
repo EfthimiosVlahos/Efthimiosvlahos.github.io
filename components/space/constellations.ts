@@ -10,8 +10,6 @@ export interface Figure {
   width: number;
   height: number;
   strokes: Stroke[];
-  /** Extra stars that aren't on a line (e.g. the ball). */
-  loose?: Pt[];
 }
 
 function ellipse(cx: number, cy: number, rx: number, ry: number, n = 9): Stroke {
@@ -48,60 +46,10 @@ export function word(text: string, gap = 34): Figure & { letters: { start: numbe
   return { width: x - gap, height: 100, strokes, letters };
 }
 
-/** The Stoa: a porch (pediment, columns, steps), the building Stoicism is named after. */
-export const STOA: Figure = {
-  width: 120,
-  height: 90,
-  strokes: [
-    [[8, 34], [60, 8], [112, 34], [8, 34]],
-    [[22, 34], [22, 78]],
-    [[46, 34], [46, 78]],
-    [[74, 34], [74, 78]],
-    [[98, 34], [98, 78]],
-    [[4, 84], [116, 84]],
-  ],
-};
-
-/** The pitch: a goal, with a ball curving into the top corner. */
-export const PITCH: Figure = {
-  width: 120,
-  height: 96,
-  strokes: [
-    [[14, 60], [14, 14], [106, 14], [106, 60]],
-    [[14, 14], [30, 30], [90, 30], [106, 14]],
-  ],
-  loose: [[48, 88]],
-};
-/** The curved shot, drawn dashed from the ball to the net. */
-export const PITCH_SHOT = "M48,88 C70,80 92,56 92,26";
-
-/** Italy and Greece traced from approximate coastline coordinates (lon, lat). */
-const ITALY: [number, number][] = [
-  [7.0, 45.9], [10.5, 46.6], [13.7, 46.5], [12.3, 45.3], [13.6, 43.6], [16.0, 41.9], [18.5, 40.1],
-  [16.9, 40.4], [16.5, 38.9], [15.6, 38.0], [15.7, 40.0], [14.3, 40.8], [12.5, 41.7], [10.5, 42.9],
-  [9.9, 44.1], [8.8, 44.4], [7.5, 43.8], [7.0, 45.9],
-];
-const SICILY: [number, number][] = [[12.4, 38.1], [15.6, 38.2], [15.1, 36.7], [12.4, 38.1]];
-const GREECE: [number, number][] = [
-  [20.0, 39.7], [21.1, 38.3], [21.3, 37.6], [21.9, 36.8], [22.5, 36.4], [22.9, 37.4], [23.2, 36.5],
-  [23.8, 37.8], [24.0, 38.2], [22.8, 39.3], [22.9, 40.6], [24.4, 40.9], [26.3, 41.0], [26.3, 41.7],
-  [23.0, 41.3], [21.0, 40.8], [20.0, 39.7],
-];
-const CRETE: [number, number][] = [[23.6, 35.4], [24.9, 35.3], [26.3, 35.2]];
-
-const geo = (pts: [number, number][]): Stroke => pts.map(([lon, lat]) => [(lon - 6.5) * 5.6, (46.9 - lat) * 6.6] as Pt);
-
-export const MEDITERRANEAN: Figure = {
-  width: 120,
-  height: 78,
-  strokes: [geo(ITALY), geo(SICILY), geo(GREECE), geo(CRETE)],
-};
-
 /** Unique vertices across strokes, so shared corners get one star. */
 export function starsOf(fig: Figure): Pt[] {
   const seen = new Map<string, Pt>();
   for (const s of fig.strokes) for (const p of s) seen.set(`${p[0].toFixed(1)},${p[1].toFixed(1)}`, p);
-  for (const p of fig.loose ?? []) seen.set(`${p[0]},${p[1]}`, p);
   return Array.from(seen.values());
 }
 

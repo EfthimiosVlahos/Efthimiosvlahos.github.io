@@ -97,23 +97,56 @@ test("ask the ancients answers from the texts and shows its work", async ({ page
   await page.getByRole("button", { name: "I hate getting out of bed in the morning" }).click();
   await expect(page.getByText("Book V, 1", { exact: false })).toBeVisible();
   await expect(page.getByText("1. Tokens")).toBeVisible();
-  await page.getByLabel("Ask the ancients a question").fill("how do I deal with anger");
+  await page.getByRole("searchbox", { name: "Ask the ancients a question" }).fill("how do I deal with anger");
   await page.getByRole("button", { name: "Ask", exact: true }).click();
   await expect(page.locator("blockquote mark").first()).toBeVisible();
 });
 
-test("the xG pitch responds to clicks, keys and presets", async ({ page }) => {
+test("the solar system shows a planet and links to its section", async ({ page }) => {
   await page.goto("/off-the-clock");
-  const value = page.locator(".gradient-text").filter({ hasText: /^0\.\d\d$/ });
-  await page.getByRole("button", { name: "Six-yard box" }).click();
-  const close = Number(await value.textContent());
-  await page.getByRole("button", { name: "From distance" }).click();
-  const far = Number(await value.textContent());
-  expect(close).toBeGreaterThan(far);
-  await page.getByRole("application").focus();
-  await page.keyboard.press("ArrowUp");
-  await page.getByRole("button", { name: "Take 100 shots from here" }).click();
-  await expect(page.getByText(/goals from 100 shots/)).toBeVisible();
+  // Planets move, so select by keyboard: focusing one also pauses the orbits.
+  await page.getByRole("button", { name: /^Soccer:/ }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.getByText("I play for a Sunday league team and support Real Madrid.").first()).toBeVisible();
+  await page.getByRole("link", { name: "Go there" }).click();
+  await expect(page).toHaveURL(/#soccer$/);
+});
+
+test("keepy-uppy starts and counts a touch", async ({ page }) => {
+  await page.goto("/off-the-clock#soccer");
+  const game = page.getByRole("application", { name: /Keepy-uppy/ });
+  // A press before hydration does nothing, so retry the start until the overlay goes away.
+  await expect(async () => {
+    await game.focus();
+    await page.keyboard.press("Space");
+    await expect(page.getByText("Tap to start")).toBeHidden({ timeout: 500 });
+  }).toPass();
+  await page.keyboard.press("Space");
+  await expect(page.getByText(/^Touches:/)).toContainText("1");
+});
+
+test("the one-rep max formulas agree at ten reps", async ({ page }) => {
+  await page.goto("/off-the-clock#gym");
+  await page.getByLabel("Weight on the bar").fill("200");
+  await page.getByLabel("Reps you got").fill("10");
+  await expect(page.locator("[aria-live=polite]").filter({ hasText: /^Epley/ })).toHaveText(/Epley\s*265\s*Brzycki\s*265/);
+});
+
+test("the double pendulums part ways and can be released again", async ({ page }) => {
+  await page.goto("/off-the-clock#physics");
+  await expect(page.getByText(/They parted ways after \d+\.\d seconds/)).toBeVisible({ timeout: 15_000 });
+  const smaller = page.getByRole("button", { name: "1 / 1,000,000 rad" });
+  await smaller.click();
+  await expect(smaller).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByText("Watching for the moment they part ways…")).toBeVisible();
+});
+
+test("the globe flies between Greece and Long Island", async ({ page }) => {
+  await page.goto("/off-the-clock#roots");
+  const li = page.getByRole("button", { name: "Long Island", exact: true });
+  await li.click();
+  await expect(li).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: "The whole arc" })).toHaveAttribute("aria-pressed", "false");
 });
 
 test("the eval gate ships routing and blocks auto-refunds", async ({ page }) => {

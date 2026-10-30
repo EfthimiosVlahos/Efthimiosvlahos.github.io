@@ -312,6 +312,29 @@
     background: var(--paper-sunken);
   }
 
+  /* Pressed-state pills. The pressed fill is darker than --blue-strong so white text keeps 4.5:1 in every theme. */
+  .toggle {
+    border: 1px solid var(--rule);
+    border-radius: 9999px;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease;
+  }
+  .toggle:hover {
+    color: var(--ink);
+    border-color: var(--blue);
+  }
+  .toggle[aria-pressed="true"] {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #fff;
+  }
+
   .btn {
     display: inline-flex;
     align-items: center;
@@ -588,13 +611,6 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.constellation-svg .cline-shot {
-  fill: none;
-  stroke: rgb(253 230 138 / 0.75);
-  stroke-width: 1.2;
-  stroke-dasharray: 2 4;
-  stroke-linecap: round;
-}
 .constellation-svg .cstar {
   fill: #f4f7ff;
   filter: drop-shadow(0 0 3px rgb(170 200 255 / 0.9));
@@ -618,28 +634,45 @@
   }
 }
 
-.sky-tile {
-  border: 1px solid rgb(160 180 255 / 0.12);
-  background: rgb(14 17 40 / 0.45);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  transition:
-    border-color 200ms ease,
-    background-color 200ms ease,
-    box-shadow 200ms ease;
+/* The solar system: planets are buttons, so they get a visible focus ring. */
+.planet-label {
+  fill: var(--ink-soft);
+  font-weight: 600;
+  /* A dark halo keeps labels legible when two planets pass each other. */
+  paint-order: stroke;
+  stroke: #060714;
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
-.sky-tile:hover,
-.sky-tile:focus-visible {
-  border-color: rgb(138 184 255 / 0.5);
-  background: rgb(20 26 60 / 0.6);
-  box-shadow: 0 0 40px -10px rgb(120 160 255 / 0.5);
+@media (max-width: 640px) {
+  .planet-label {
+    font-size: 19px;
+  }
 }
-.sky-tile:hover .cline {
-  stroke: rgb(200 220 255 / 0.85);
+.planet:hover .planet-label,
+.planet:focus-visible .planet-label {
+  fill: var(--ink);
 }
-
-/* The xG pitch under floodlights. */
-.night .pitch-lines {
-  stroke: rgb(190 215 255 / 0.85);
-  filter: drop-shadow(0 0 3px rgb(120 170 255 / 0.9));
+.planet:focus-visible .planet-hit,
+.sun:focus-visible .planet-hit {
+  stroke: var(--blue);
+  stroke-width: 2;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sun-corona {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: corona 6s ease-in-out infinite;
+  }
+}
+@keyframes corona {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
 }

@@ -3,21 +3,36 @@
 import { useEffect, useRef, useState } from "react";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 
-/** ISO 3166 numeric ids in world-atlas. */
+/** ISO 3166 numeric ids in world-atlas: lit like city lights. */
 const LIT: Record<string, string> = { "300": "Greece", "380": "Italy" };
-/** Resting view: centered over the Ionian Sea, between the two. */
-const HOME: [number, number] = [-19, -38.5];
+const GREECE: [number, number] = [22.6, 39.3];
+const LONG_ISLAND: [number, number] = [-73.1, 40.8];
+
+/** Views, as d3 rotations [−longitude, −latitude] of the point at the center. */
+const VIEWS = {
+  both: [25, -38],
+  greece: [-20, -39],
+  longIsland: [73, -40],
+} as const;
+type View = keyof typeof VIEWS;
 
 /**
- * A night-side globe that always drifts back to the Mediterranean, with Greece and Italy glowing
- * like city lights. Drag (or use the arrow keys) to spin it. The map data loads only when the
- * globe nears the viewport.
+ * A night-side globe with Greek roots and a Long Island home joined by a glowing arc. Italy glows too.
+ * Drag or use the arrow keys to spin it; the buttons fly between the two ends. Map data loads only
+ * when the globe nears the viewport.
  */
 export function NightGlobe() {
   const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
+  const view = useRef<View>("both");
+  const [current, setCurrent] = useState<View>("both");
   const [ready, setReady] = useState(false);
   const [error, setError] = useState(false);
+
+  const fly = (v: View) => {
+    view.current = v;
+    setCurrent(v);
+  };
 
   useEffect(() => {
     const el = wrap.current;
@@ -43,12 +58,14 @@ export function NightGlobe() {
         const countries = land.features.filter((f) => f.properties.name !== "Antarctica");
         const lit = countries.filter((f) => String(f.id) in LIT);
         const graticule = d3.geoGraticule10();
+        const arc = { type: "LineString" as const, coordinates: [GREECE, LONG_ISLAND] };
+        const along = d3.geoInterpolate(GREECE, LONG_ISLAND);
         // Canvas can't read CSS variables, so resolve the site font's real family name once.
         const fontFamily = getComputedStyle(document.documentElement).getPropertyValue("--font-inter").trim() || "system-ui, sans-serif";
         const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         let size = 0;
-        const rot: [number, number] = [HOME[0] + 50, HOME[1] + 12];
+        const rot: [number, number] = reduce ? [VIEWS.both[0], VIEWS.both[1]] : [VIEWS.both[0] + 60, VIEWS.both[1] + 10];
         let dragging = false;
         let last: [number, number] | null = null;
         let visible = true;
@@ -65,7 +82,23 @@ export function NightGlobe() {
           projection.translate([size / 2, size / 2]).scale(size * 0.4);
         };
 
-        const draw = () => {
+        const label = (pt: [number, number], text: string, dx: number, dy: number) => {
+          const center: [number, number] = [-rot[0], -rot[1]];
+          if (d3.geoDistance(pt, center) > 1.35) return;
+          const p = projection(pt);
+          if (!p) return;
+          ctx.strokeStyle = "rgba(253,230,138,0.6)";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p[0], p[1]);
+          ctx.lineTo(p[0] + dx, p[1] + dy);
+          ctx.stroke();
+          ctx.fillStyle = "#fde68a";
+          ctx.textAlign = dx < 0 ? "right" : "left";
+          ctx.fillText(text, p[0] + dx + (dx < 0 ? -4 : 4), p[1] + dy + 4);
+        };
+
+        const draw = (t: number) => {
           const r = size * 0.4;
           const c = size / 2;
           ctx.clearRect(0, 0, size, size);
@@ -109,30 +142,57 @@ export function NightGlobe() {
           ctx.fill();
           ctx.restore();
 
-          // Labels, only when the country faces us.
-          const center: [number, number] = [-rot[0], -rot[1]];
-          ctx.font = `600 13px ${fontFamily}`;
-          ctx.textAlign = "left";
-          for (const f of lit) {
-            const centroid = d3.geoCentroid(f as Feature);
-            if (d3.geoDistance(centroid, center) > 1.3) continue;
-            const p = projection(centroid);
-            if (!p) continue;
-            const dx = LIT[String(f.id)] === "Italy" ? -70 : 26;
-            ctx.strokeStyle = "rgba(253,230,138,0.6)";
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(p[0], p[1]);
-            ctx.lineTo(p[0] + dx * 0.55, p[1] - 22);
-            ctx.stroke();
-            ctx.fillStyle = "#fde68a";
-            ctx.fillText(LIT[String(f.id)] ?? "", p[0] + dx * (dx > 0 ? 0.6 : 1.05), p[1] - 26);
+          // The arc home: dashed, with a light traveling from Greece to Long Island.
+          ctx.save();
+          ctx.setLineDash([5, 7]);
+          ctx.lineDashOffset = reduce ? 0 : -t / 40;
+          ctx.strokeStyle = "rgba(253,230,138,0.75)";
+          ctx.lineWidth = 1.6;
+          ctx.beginPath();
+          path(arc);
+          ctx.stroke();
+          ctx.restore();
+          if (!reduce) {
+            const pos = along(((t / 7000) % 1) as number);
+            if (d3.geoDistance(pos, [-rot[0], -rot[1]]) < Math.PI / 2) {
+              const p = projection(pos);
+              if (p) {
+                const g = ctx.createRadialGradient(p[0], p[1], 0, p[0], p[1], 10);
+                g.addColorStop(0, "rgba(255,244,214,1)");
+                g.addColorStop(1, "rgba(255,244,214,0)");
+                ctx.fillStyle = g;
+                ctx.beginPath();
+                ctx.arc(p[0], p[1], 10, 0, Math.PI * 2);
+                ctx.fill();
+              }
+            }
           }
 
-          // Terminator shading: the globe is on the night side, lit from the upper left.
+          // Long Island: a glowing point.
+          if (d3.geoDistance(LONG_ISLAND, [-rot[0], -rot[1]]) < Math.PI / 2) {
+            const p = projection(LONG_ISLAND);
+            if (p) {
+              const g = ctx.createRadialGradient(p[0], p[1], 0, p[0], p[1], 12);
+              g.addColorStop(0, "rgba(255,236,170,1)");
+              g.addColorStop(0.4, "rgba(251,191,36,0.6)");
+              g.addColorStop(1, "rgba(251,191,36,0)");
+              ctx.fillStyle = g;
+              ctx.beginPath();
+              ctx.arc(p[0], p[1], 12, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+
+          ctx.font = `600 13px ${fontFamily}`;
+          label(GREECE, "Greece", 26, -26);
+          const italy = lit.find((f) => LIT[String(f.id)] === "Italy");
+          if (italy) label(d3.geoCentroid(italy as Feature) as [number, number], "Italy", -22, -30);
+          label(LONG_ISLAND, "Long Island", -26, -26);
+
+          // Night-side shading, lit from the upper left.
           const shade = ctx.createLinearGradient(c - r, c - r, c + r, c + r);
           shade.addColorStop(0, "rgba(0,0,0,0)");
-          shade.addColorStop(1, "rgba(2,4,12,0.55)");
+          shade.addColorStop(1, "rgba(2,4,12,0.5)");
           ctx.beginPath();
           path({ type: "Sphere" });
           ctx.fillStyle = shade;
@@ -141,18 +201,18 @@ export function NightGlobe() {
 
         const tick = (t: number) => {
           if (!dragging) {
-            const target0 = HOME[0] + Math.sin(t / 5200) * 9;
-            rot[0] += (target0 - rot[0]) * 0.02;
-            rot[1] += (HOME[1] - rot[1]) * 0.02;
+            const target = VIEWS[view.current];
+            const sway = view.current === "both" ? Math.sin(t / 5200) * 7 : 0;
+            rot[0] += (target[0] + sway - rot[0]) * 0.03;
+            rot[1] += (target[1] - rot[1]) * 0.03;
           }
-          draw();
+          draw(t);
           if (visible && !document.hidden) raf = requestAnimationFrame(tick);
         };
 
         const startLoop = () => {
           cancelAnimationFrame(raf);
-          if (reduce) draw();
-          else raf = requestAnimationFrame(tick);
+          raf = requestAnimationFrame(tick);
         };
 
         const onDown = (e: PointerEvent) => {
@@ -165,28 +225,25 @@ export function NightGlobe() {
           rot[0] += (e.clientX - last[0]) * 0.35;
           rot[1] = Math.max(-80, Math.min(80, rot[1] - (e.clientY - last[1]) * 0.35));
           last = [e.clientX, e.clientY];
-          if (reduce) draw();
         };
         const onUp = () => {
           dragging = false;
           last = null;
         };
         const onKey = (e: KeyboardEvent) => {
-          const step = 10;
-          const moves: Record<string, [number, number]> = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+          const moves: Record<string, [number, number]> = { ArrowLeft: [10, 0], ArrowRight: [-10, 0], ArrowUp: [0, -10], ArrowDown: [0, 10] };
           const m = moves[e.key];
           if (!m) return;
           e.preventDefault();
+          dragging = true;
           rot[0] += m[0];
           rot[1] = Math.max(-80, Math.min(80, rot[1] + m[1]));
-          if (reduce) draw();
+          window.setTimeout(() => (dragging = false), 1200);
         };
 
-        if (reduce) {
-          rot[0] = HOME[0];
-          rot[1] = HOME[1];
-        }
         resize();
+        // Reduced motion still animates user-initiated flights, but nothing moves on its own.
+        if (reduce) draw(0);
         startLoop();
         setReady(true);
 
@@ -195,10 +252,7 @@ export function NightGlobe() {
           if (visible) startLoop();
         });
         io.observe(cv);
-        const onResize = () => {
-          resize();
-          draw();
-        };
+        const onResize = () => resize();
         const onVisibility = () => !document.hidden && visible && startLoop();
         window.addEventListener("resize", onResize);
         document.addEventListener("visibilitychange", onVisibility);
@@ -223,7 +277,6 @@ export function NightGlobe() {
       }
     };
 
-    // Load the map only when the globe is about to be seen.
     const near = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
@@ -243,22 +296,43 @@ export function NightGlobe() {
     };
   }, []);
 
+  const buttons: { id: View; label: string }[] = [
+    { id: "greece", label: "Greece" },
+    { id: "both", label: "The whole arc" },
+    { id: "longIsland", label: "Long Island" },
+  ];
+
   return (
-    <div ref={wrap} className="relative mx-auto aspect-square w-full max-w-[34rem]">
-      {!ready && (
-        <div
-          className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle_at_35%_30%,#14295a,#050b1c)] shadow-[0_0_80px_10px_rgba(90,140,255,0.25)]"
-          aria-hidden="true"
+    <div>
+      <div ref={wrap} className="relative mx-auto aspect-square w-full max-w-[34rem]">
+        {!ready && (
+          <div
+            className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle_at_35%_30%,#14295a,#050b1c)] shadow-[0_0_80px_10px_rgba(90,140,255,0.25)]"
+            aria-hidden="true"
+          />
+        )}
+        <canvas
+          ref={canvas}
+          tabIndex={0}
+          role="img"
+          aria-label="A globe at night with Greece and Italy glowing and an arc from Greece to Long Island, New York. Drag or use the arrow keys to spin it."
+          className={`relative block h-full w-full cursor-grab touch-none rounded-full outline-none focus-visible:ring-2 focus-visible:ring-blue active:cursor-grabbing ${ready ? "" : "opacity-0"}`}
         />
-      )}
-      <canvas
-        ref={canvas}
-        tabIndex={0}
-        role="img"
-        aria-label="A globe at night centered on the Mediterranean, with Greece and Italy glowing. Drag or use the arrow keys to spin it."
-        className={`relative block h-full w-full cursor-grab touch-none rounded-full outline-none focus-visible:ring-2 focus-visible:ring-blue active:cursor-grabbing ${ready ? "" : "opacity-0"}`}
-      />
-      {error && <p className="absolute inset-x-0 bottom-0 text-center text-sm text-soft">The map didn’t load. Reload to try again.</p>}
+        {error && <p className="absolute inset-x-0 bottom-0 text-center text-sm text-soft">The map didn’t load. Reload to try again.</p>}
+      </div>
+      <div className="mt-4 flex flex-wrap justify-center gap-2" role="group" aria-label="Fly the globe to">
+        {buttons.map((b) => (
+          <button
+            key={b.id}
+            type="button"
+            aria-pressed={current === b.id}
+            onClick={() => fly(b.id)}
+            className="toggle"
+          >
+            {b.label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

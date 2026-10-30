@@ -29,9 +29,7 @@ export function ToolsIndex() {
                       type="button"
                       aria-pressed={active}
                       onClick={() => setSelected(active ? null : t)}
-                      className={`rounded-full border px-3 py-1 text-sm font-medium transition-colors ${
-                        active ? "border-blue-strong bg-blue-strong text-white" : "border-rule bg-raised text-ink hover:border-blue hover:text-blue"
-                      }`}
+                      className={`toggle ${active ? "" : "bg-raised text-ink hover:text-blue"}`}
                     >
                       {t.name}
                     </button>
