@@ -61,6 +61,12 @@ details without asking. Real Madrid's finals are listed in `content/realmadrid.t
 PSG won 2025 and 2026). Any physics claim on the page is backed by a unit test (energy drift, chaos timing,
 Epley = Brzycki at ten reps).
 
+The owner asked for humor and humanity on this page and said made-up details are fine. The rule: jokes may be
+invented (the scouting-report ratings, keepy-uppy reactions, lift quips, the leg-day graph), but each is obviously a
+joke or labeled ("Every number here is made up", "Illustrative"). Don't invent checkable biography: birthplace,
+schools, achievements, stats presented as real, or named family members. No name etymology on the page; the owner
+said it doesn't need defining.
+
 ## Writing rules
 
 - First person, plain verbs, sentence case. Say what happened and how it was measured.

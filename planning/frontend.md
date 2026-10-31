@@ -32,7 +32,8 @@ Tokens (`app/globals.css`) are role-named and mapped into Tailwind v4 with `@the
 - `EvalGate`, `AskTheAncients`: interactive demos; logic in `lib/evalgate.ts`, `lib/retrieval.ts`.
 - Off the clock (`components/space/`): `SolarSystem` (planets are buttons; Kepler periods from `content/personal.ts`;
   render `PlanetDefs` once per page for the shared gradients), `NightGlobe`, `KeepyUppy` (`lib/keepy.ts`),
-  `EuropeanCups` (`content/realmadrid.ts`), `OneRepMax` (`lib/strength.ts`), `DoublePendulum` (`lib/pendulum.ts`, RK4).
+  `EuropeanCups` (`content/realmadrid.ts`), `ScoutingReport` and `LegDays` (jokes, data in `content/personal.ts`),
+  `OneRepMax` (`lib/strength.ts`, lift presets from `content/personal.ts`), `DoublePendulum` (`lib/pendulum.ts`, RK4).
   Canvases pause off-screen and when the tab is hidden; nothing moves on its own under reduced motion.
 - `.toggle` is the shared pressed-state pill; its pressed fill is darker than `--blue-strong` so white text passes AA.
 - `ChartFigure` takes an optional `minWidth`: below it the plot scrolls sideways on phones instead of shrinking its text.

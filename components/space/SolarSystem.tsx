@@ -260,7 +260,7 @@ export function SolarSystem() {
           </>
         )}
         <p className="mt-6 border-t border-rule pt-4 text-xs text-soft">
-          Physics note: the orbits follow Kepler’s third law, where a year squared is proportional to the distance cubed. That’s why the outer planets really are slower.
+          Physics note: the orbits follow Kepler’s third law, where a year squared is proportional to the distance cubed. That’s why the outer planets really are slower. Philosophy, out at the edge, takes its time.
         </p>
       </div>
     </div>

@@ -242,7 +242,8 @@ export function DoublePendulum() {
           </p>
           <p className="mt-1 text-sm text-soft">
             The gap grows exponentially: each time the head start shrinks a thousand-fold, they agree for only about three
-            more seconds. That is chaos, and it is why long-range forecasts are hard.
+            more seconds. That is chaos, and it is why long-range forecasts are hard. It also explains why my Sunday
+            league team’s tactics never survive kickoff.
           </p>
         </div>
       </div>

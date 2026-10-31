@@ -50,13 +50,13 @@ export function EuropeanCups() {
   return (
     <ChartFigure
       title="Fifteen European Cups"
-      subtitle="Real Madrid’s running total, the most of any club. Hover or tab along the line for each final."
+      subtitle="Real Madrid’s running total, the most of any club, which explains my expectations. Hover or tab along the line for each final."
       viewBox={[W, H]}
       table={{
         columns: ["Year", "Final", "Score", "Total"],
         rows: EUROPEAN_CUPS.map((c, k) => [c.year, c.opponent, c.score, k + 1]),
       }}
-      source="Counted through the 2026 final."
+      source="Counted through the 2026 final. We don’t talk about 2025 or 2026."
       minWidth={640}
     >
       {(show) => (

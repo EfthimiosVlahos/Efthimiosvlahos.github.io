@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { advance, canKick, kick, newBall, RADIUS, type Ball } from "@/lib/keepy";
+import { keepyQuip } from "@/content/personal";
 
 const ASPECT = 1.15; // height / width of the playing area
 type Phase = "ready" | "playing" | "dropped";
@@ -202,9 +203,9 @@ export function KeepyUppy() {
         />
         {phase !== "playing" && (
           <div className="pointer-events-none absolute inset-x-0 top-[38%] text-center" aria-live="polite">
-            <p className="text-xl font-bold">{phase === "ready" ? "Tap to start" : `Dropped. ${score} touches.`}</p>
+            <p className="text-xl font-bold">{phase === "ready" ? "Tap to start" : `Dropped. ${score} ${score === 1 ? "touch" : "touches"}.`}</p>
             <p className="mt-1 text-sm text-soft">
-              {phase === "ready" ? "Then tap the ball to keep it up." : "Tap to go again."}
+              {phase === "ready" ? "Then tap the ball to keep it up." : `${keepyQuip(score)} Tap to go again.`}
             </p>
           </div>
         )}

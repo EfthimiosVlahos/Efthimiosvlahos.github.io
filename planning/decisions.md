@@ -63,3 +63,9 @@ exactly at ten reps, and the Real Madrid chart is a running total, so the 32 yea
 cups shows as a plateau. "Ask the ancients" stays as the one AI-flavored piece. The star-chart navigation, the Stoa,
 pitch and Mediterranean constellations, and `lib/xg.ts` were removed. (Oct 2026)
 
+**A warmer, funnier voice on Off the clock.** The owner wanted more humanity and jokes ("don't skip leg day") and no
+explanation of their name. The euthymia name card was removed. Copy now leans on self-deprecating humor that
+still reads well to a hiring manager: a scouting report of "in my head" versus "on the tape", a leg-day contribution
+graph ("like a green build, but for hamstrings"), sibling lessons that double as work habits. Humor never punches at
+teammates, referees or employers. (Oct 2026)
+

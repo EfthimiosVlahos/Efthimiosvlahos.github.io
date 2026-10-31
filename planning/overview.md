@@ -36,6 +36,6 @@ signals availability subtly ("where I do my best work") rather than with "open t
 | `/experience` | Career timeline chart, role cards |
 | `/projects` and `/projects/<slug>` | Case-study cards; four case studies with diagrams and charts |
 | `/skills` | Constellation, skills by group with evidence, certifications |
-| `/off-the-clock` | The human side, under a night sky: name as a constellation, a solar system of interests that doubles as navigation, a globe with an arc from Greece to Long Island, keepy-uppy and Real Madrid's fifteen European Cups, a one-rep-max calculator, chaotic double pendulums, and "Ask the ancients" |
+| `/off-the-clock` | The human side, under a night sky: name as a constellation, a solar system of interests that doubles as navigation, a globe with an arc from Greece to Long Island, "things you learn as one of four", keepy-uppy, a made-up scouting report and Real Madrid's fifteen European Cups, a leg-day streak and one-rep-max calculator, chaotic double pendulums, and "Ask the ancients" |
 
 Related: @planning/frontend.md, @planning/content.md, @planning/deployment.md.

@@ -3,7 +3,7 @@ import { energy, separation, step, type PendulumState } from "@/lib/pendulum";
 import { brzycki, epley, repMaxes, toPlates } from "@/lib/strength";
 import { GRAVITY, advance, canKick, kick, newBall } from "@/lib/keepy";
 import { EUROPEAN_CUPS } from "@/content/realmadrid";
-import { PLANETS, period } from "@/content/personal";
+import { LIFTS, PLANETS, SCOUTING, keepyQuip, period } from "@/content/personal";
 
 describe("double pendulum", () => {
   const start: PendulumState = { t1: 2.0, t2: 2.4, w1: 0, w2: 0 };
@@ -123,5 +123,31 @@ describe("personal content", () => {
     // T² / a³ is the same for every planet.
     const k = PLANETS.map((p) => period(p.orbit) ** 2 / p.orbit ** 3);
     for (const v of k) expect(v).toBeCloseTo(k[0]!, 9);
+  });
+});
+
+describe("the jokes", () => {
+  it("reacts to every keepy-uppy score, and only the best get scouted", () => {
+    expect(keepyQuip(0)).toMatch(/warm-up/);
+    expect(keepyQuip(3)).toMatch(/first touch/);
+    expect(keepyQuip(29)).not.toMatch(/scouts/);
+    expect(keepyQuip(30)).toMatch(/scouts/);
+  });
+
+  it("keeps the scouting report on a 0 to 100 scale with unique skills", () => {
+    for (const r of SCOUTING) {
+      for (const v of [r.head, r.tape]) {
+        expect(v).toBeGreaterThanOrEqual(0);
+        expect(v).toBeLessThanOrEqual(100);
+      }
+    }
+    expect(new Set(SCOUTING.map((r) => r.skill)).size).toBe(SCOUTING.length);
+  });
+
+  it("loads plate milestones that are loadable in both units", () => {
+    for (const l of LIFTS) {
+      expect(toPlates(l.lb, "lb")).toBe(l.lb);
+      expect(toPlates(l.kg, "kg")).toBe(l.kg);
+    }
   });
 });

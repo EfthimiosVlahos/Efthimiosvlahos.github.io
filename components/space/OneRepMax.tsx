@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { ChartFigure, Hit } from "../charts/ChartFigure";
 import { brzycki, epley, repMaxes, toPlates } from "@/lib/strength";
 import { linear } from "@/lib/scales";
+import { LIFTS, type LiftId } from "@/content/personal";
 
 const EPLEY = "var(--cat-1)";
 const BRZYCKI = "var(--cat-2)";
@@ -12,7 +13,8 @@ const BRZYCKI = "var(--cat-2)";
 export function OneRepMax() {
   const id = useId();
   const [unit, setUnit] = useState<"lb" | "kg">("lb");
-  const [weight, setWeight] = useState(225);
+  const [lift, setLift] = useState<LiftId>("squat");
+  const [weight, setWeight] = useState(315);
   const [reps, setReps] = useState(5);
 
   const e = epley(weight, reps);
@@ -39,6 +41,14 @@ export function OneRepMax() {
   const y = linear([lo, hi], [H - bottom, top]);
   const line = (key: "epley" | "brzycki") => table.map((r, k) => `${k ? "L" : "M"}${x(r.reps)},${y(r[key])}`).join(" ");
 
+  const current = LIFTS.find((l) => l.id === lift) ?? LIFTS[1];
+  const pickLift = (next: LiftId) => {
+    const l = LIFTS.find((m) => m.id === next);
+    if (!l) return;
+    setLift(next);
+    setWeight(l[unit]);
+  };
+
   const setUnitConverting = (next: "lb" | "kg") => {
     if (next === unit) return;
     setWeight((w) => toPlates(next === "kg" ? w / 2.2046 : w * 2.2046, next));
@@ -48,6 +58,18 @@ export function OneRepMax() {
   return (
     <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] [&>figure]:my-0">
       <div className="card flex flex-col gap-5 p-6">
+        <div>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Lift">
+            {LIFTS.map((l) => (
+              <button key={l.id} type="button" aria-pressed={lift === l.id} onClick={() => pickLift(l.id)} className="toggle">
+                {l.name}
+              </button>
+            ))}
+          </div>
+          <p className="mt-3 text-sm text-soft" aria-live="polite">
+            {current.quip}
+          </p>
+        </div>
         <div className="flex gap-2" role="group" aria-label="Units">
           {(["lb", "kg"] as const).map((u) => (
             <button

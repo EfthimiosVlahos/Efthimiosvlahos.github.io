@@ -107,7 +107,7 @@ test("the solar system shows a planet and links to its section", async ({ page }
   // Planets move, so select by keyboard: focusing one also pauses the orbits.
   await page.getByRole("button", { name: /^Soccer:/ }).focus();
   await page.keyboard.press("Enter");
-  await expect(page.getByText("I play for a Sunday league team and support Real Madrid.").first()).toBeVisible();
+  await expect(page.getByText(/Sunday league on the weekend, Real Madrid the rest of the week/).first()).toBeVisible();
   await page.getByRole("link", { name: "Go there" }).click();
   await expect(page).toHaveURL(/#soccer$/);
 });
@@ -115,14 +115,22 @@ test("the solar system shows a planet and links to its section", async ({ page }
 test("keepy-uppy starts and counts a touch", async ({ page }) => {
   await page.goto("/off-the-clock#soccer");
   const game = page.getByRole("application", { name: /Keepy-uppy/ });
-  // A press before hydration does nothing, so retry the start until the overlay goes away.
+  // Start and kick in one synchronous step, so a slow machine can't let the ball land in between.
+  // A press before hydration does nothing, so retry until the touch counts.
   await expect(async () => {
-    await game.focus();
-    await page.keyboard.press("Space");
-    await expect(page.getByText("Tap to start")).toBeHidden({ timeout: 500 });
+    await game.evaluate((el) => {
+      for (let i = 0; i < 2; i++) el.dispatchEvent(new KeyboardEvent("keydown", { key: " ", bubbles: true }));
+    });
+    await expect(page.getByText(/^Touches:/)).toContainText("1", { timeout: 500 });
   }).toPass();
-  await page.keyboard.press("Space");
-  await expect(page.getByText(/^Touches:/)).toContainText("1");
+});
+
+test("picking a lift loads its plate milestone and a word on leg day", async ({ page }) => {
+  await page.goto("/off-the-clock#gym");
+  await page.getByRole("button", { name: "Deadlift" }).click();
+  await expect(page.getByText("405 lb")).toBeVisible();
+  await page.getByRole("button", { name: "Squat" }).click();
+  await expect(page.getByText(/Leg day\. Never skipped/)).toBeVisible();
 });
 
 test("the one-rep max formulas agree at ten reps", async ({ page }) => {

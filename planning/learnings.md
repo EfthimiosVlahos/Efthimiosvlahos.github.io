@@ -29,3 +29,5 @@
 - **Keyboard e2e on freshly loaded pages can race hydration.** Retry the first interaction until the UI responds
   (`expect(...).toPass()`), then assert.
 - **Prettier isn't configured in this repo.** Running it reformats files to 80 columns; don't.
+- **Two keyboard presses can straddle a frame on a loaded machine.** In the keepy-uppy e2e test the ball landed
+  between "start" and "kick" when the load average hit ~120. Dispatch both keydowns in one synchronous `evaluate`.
