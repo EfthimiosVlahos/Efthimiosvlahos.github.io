@@ -71,8 +71,11 @@ for (const file of pages) {
   }
 }
 
+// Redirects and headers ship inside out/ so they survive a drag-and-drop deploy, which ignores netlify.toml.
+for (const file of ["_redirects", "_headers"]) if (!existsSync(join(out, file))) problems.push(`missing out/${file}`);
+
 if (problems.length) {
   console.error(`check-site: ${problems.length} problem(s)\n${problems.map((p) => `  - ${p}`).join("\n")}`);
   process.exit(1);
 }
-console.log(`check-site: ${pages.length} pages OK (links, SEO tags, confidentiality).`);
+console.log(`check-site: ${pages.length} pages OK (links, SEO tags, confidentiality, redirects and headers).`);

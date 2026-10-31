@@ -1,0 +1,15 @@
+# Netlify reads this file from the published folder, so it works for Git builds and drag-and-drop deploys alike.
+
+# The static export writes the share image without an extension; tell crawlers it is a PNG.
+/opengraph-image
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

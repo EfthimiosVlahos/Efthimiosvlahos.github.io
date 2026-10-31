@@ -1,0 +1,9 @@
+# Netlify reads this file from the published folder, so it works for Git builds and drag-and-drop deploys alike.
+
+# Pages from the previous version of the site, so old links and bookmarks keep working.
+/contact                             /#contact                      301
+/work/*                              /projects/:splat               301
+/Efthimios_Vlahos_Resume_Oct25.pdf   /Efthimios_Vlahos_Resume.pdf   301
+
+# Unknown paths get the real 404 page (the old catch-all to /index.html hid broken links).
+/*                                   /404.html                      404

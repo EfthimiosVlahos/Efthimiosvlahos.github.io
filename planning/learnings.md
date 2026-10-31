@@ -5,7 +5,9 @@
 - **Light mode needs its own text colors.** `#2563eb` on a 10% blue tint is 4.49:1, just under AA. Text-weight
   blue and red are darker in light mode than the chart marks.
 - **Page-level `openGraph` replaces the root one** in Next metadata, dropping the share image. Restate `images`.
-- **Static export writes `opengraph-image` with no extension.** Set its Content-Type in `netlify.toml`.
+- **Static export writes `opengraph-image` with no extension.** Set its Content-Type in `public/_headers`.
+- **Check how a site is really deployed before promising anything about deploys.** `netlify.toml` in the repo
+  suggested Git builds; the dashboard showed a Netlify Drop upload with no repository linked.
 - **App Router serializes server output twice** (HTML plus the flight payload). Big SVGs, such as maps, cost double;
   simplify geometry (`topojson-simplify`, whole-pixel coordinates) before reaching for client-side rendering.
 - **WCAG 2.5.3 label in name:** an `aria-label` on a link must contain its visible text. Prefer visible text plus
