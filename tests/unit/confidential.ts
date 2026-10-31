@@ -38,6 +38,7 @@ export const CONFIDENTIAL_TERMS: readonly string[] = [
   "nvidia01",
   "goalliant",
   "AI.DocEngine",
+  "DocEngine",
   "Policy_Information__c",
   "Policy_Submission_For_Review__e",
   ":8977",
