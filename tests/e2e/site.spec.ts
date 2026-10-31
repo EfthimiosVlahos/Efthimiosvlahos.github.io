@@ -36,6 +36,25 @@ for (const route of ROUTES) {
   });
 }
 
+// Netlify inserts a promotional comment and a line break into <head> on production. Without cleanup, React reads
+// them as a hydration mismatch (error #418) and re-renders every page from scratch.
+for (const route of ["/", "/off-the-clock"]) {
+  test(`${route} hydrates cleanly with Netlify's injected head comment`, async ({ page }) => {
+    const errors = collectErrors(page);
+    await page.route((url) => url.pathname === route, async (r) => {
+      const res = await r.fetch();
+      const html = (await res.text()).replace(
+        '<meta charSet="utf-8"/>',
+        '<meta charSet="utf-8"/>\n<!-- This site is hosted on Netlify. Anyone can build and deploy a site\n     like this one for free. -->',
+      );
+      await r.fulfill({ response: res, body: html });
+    });
+    await page.goto(route);
+    await page.waitForTimeout(1500);
+    expect(errors).toEqual([]);
+  });
+}
+
 test("navigation reaches a case study and back", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Projects" }).click();

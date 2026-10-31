@@ -33,3 +33,7 @@
 - **Prettier isn't configured in this repo.** Running it reformats files to 80 columns; don't.
 - **Two keyboard presses can straddle a frame on a loaded machine.** In the keepy-uppy e2e test the ball landed
   between "start" and "kick" when the load average hit ~120. Dispatch both keydowns in one synchronous `evaluate`.
+- **Netlify injects a promotional comment into `<head>` on production** (not in the build, not in local tests). React
+  treats it as a hydration mismatch (#418) and re-renders every page. `app/layout.tsx` strips comments and
+  whitespace from `<head>` in an inline script before hydration; an e2e test injects the comment to keep it fixed.
+  After any drag-and-drop deploy, load the live site and check the console.

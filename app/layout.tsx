@@ -56,6 +56,13 @@ const personJsonLd = {
   knowsAbout: ["LLM agents", "LLM evaluation", "Machine learning engineering", "MLOps", "Document AI", "Retrieval-augmented generation"],
 };
 
+/**
+ * Netlify inserts a promotional HTML comment and a line break into <head> on production. React reads those extra
+ * nodes as a hydration mismatch (error #418) and re-renders the whole page, so remove them before React starts.
+ * React's own <head> output has no comments or whitespace, so any found here came from the host.
+ */
+const stripHostHeadNodes = `for (const n of Array.from(document.head.childNodes)) if (n.nodeType === 8 || (n.nodeType === 3 && !n.textContent.trim())) n.remove();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -65,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: stripHostHeadNodes }} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       </head>
